@@ -1,0 +1,169 @@
+\documentclass[12pt]{tcc} 
+
+\usepackage[brazil]{babel} 
+\usepackage[T1]{fontenc}
+%\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[hidelinks]{hyperref}
+\usepackage[pt-BR]{datetime2}
+% \DTMlangsetup{showdayofmonth=false}
+\usepackage[portuguese,ruled,linesnumbered,algochapter,titlenumbered]{algorithm2e}
+
+
+% As figuras ficam armazenadas na pasta figuras
+\graphicspath{{./figures/}}
+
+% Informações do trabalho
+\newcommand\dtitle{Geração de mapas procedurais a partir de visão computacional }
+\newcommand\dauthor{Lucas da Silva Santos\\Matheus Zanivan Andrade\\ Rafael Nascimento Lourenço}
+\newcommand\dadvisor{Orientador, D.Sc.\\Coorientador}
+
+% Definição de acronimos
+\newacro{TCC}{Trabalho de Conclusão de Curso}
+
+\begin{document}
+\pagenumbering{gobble}
+\pagenumbering{roman}
+
+\dcover
+
+\dcoverback
+	
+\dlibrary{ficha.pdf}
+		
+\ddedicatory{
+	\raggedleft \normalsize Dedicatória.
+}
+
+\dacknowledgment{
+	Agradece-se à CAPES, CNPq e FAPERJ pelo financiamento parcial desta pesquisa.\\
+	\\
+	Agradece-se também Noname.
+}
+
+\dresumo{
+Este roteiro traz as principais informações para a elaboração do trabalho de conclusão de curso. o trabalho deve ser escrito de modo a se mostrar interessante e importante. Para tanto, a forma de escrevê-lo, principalmente no resumo e  introdução, é fundamental. É o momento no qual o autor deve ``vender o trabalho''\footnote{Aprenda a usar as aspas corretamente olhando este exemplo.}. 
+}{palavras chaves separadas por ponto e vírgula}	
+
+\dabstract{
+	Resumo escrito em inglês
+}{palavras chaves separadas por ponto e vírgula}
+
+\dtables
+	
+
+\pagenumbering{arabic}
+\justifying
+	
+\chapter{Introdução}
+\label{sec:introducao}
+
+\section{Contexto}
+
+A indústria de jogos digitais cresce mais a cada dia, segundo a consultora Newzoo(Santana, 2022 ) essa industria tende a ultrapassar em 2023 os US$ 200,0 bilhões (aproximadamente R$ 1 trilhão).
+
+Por outro lado as fabricantes de Games desenvolvem sem parar suprir o público gamer que em 2022 cresceu 2,5\% no Brasil (PGB - 2022), só que para um jogo chegar ao consumidor final ele passa por diversos processos de criação, que são extremamente complexos e rígido, uma vez que uma equipe de desenvolvimento com designers e programadores tem que mover muita das suas forças para elaboração de mapas 2D e 3D, afim de deixar o jogo com a melhor aparência e mais optimizado. 
+
+Uma solução para a redução de custo, tanto como de tempo quanto de dinheiro pode-se utilizar a geração procedural de conteúdos, com o objetivo de gerar mapas proceduralmente .A geração procedural de conteúdo (PCG) trata da criação automática de conteúdos.(Araújo, 2018) 
+
+\section{Justificativa}
+
+"Bill Gates, um dos fundadores da Microsoft, diz que o desenvolvimento da inteligência artificial (IA) é o avanço tecnológico mais importante em décadas"\space\citep{inteligencia_artificial_e_avanco_bbc}. É possível ver a relevância do tema, e justamente por isso o nosso trabalho acompanhara o desenvolvimento de um IA e utilizara os resultados no diagrama de Veronoi.
+
+O diagrama de Veronoi é gerado a partir das distancias euclidianas entre os vizinhos mais próximos de um conjunto de pontos do plano\space\citep{diagrama_de_voronoi:_uma_exploracao_nas_distancias_euclidiana_e_do_taxi}. Esse diagrama possui uma gama de utilizações, \emph{e. g.}, estudar epidemias, encontrar o ponto mais proximo, calcular a precipitação de uma área, 
+estudar os padrões de crescimento das florestas, etc,\space\citep{poligonos_de_thiessen_ou_voronoi}. O diagrama de Veronoi sera utilizado na geração de biomas com o algoritmo de Fortune.
+
+A principal motivação para a realização dessa monografia é a junção das areas de maior interesse de cada um dos participante, são essas, IA, algoritmos de ruídos, diagramas e jogos.
+
+\section{Objetivos}
+
+Este trabalho tem como objetivo geral explorar técnicas e algoritmos que permeiam os ramos de inteligência artificial com foco em identificar contornos em imagens e computação gráfica centrado em gerar mapas usando heurísticas.
+Ademais visto especificamente temos como objetivos:
+
+- Achar um dataset para treinar uma inteligência artificial que irá identificar contornos em imagens
+
+- Treinar uma inteligência artificial para identificar contornos em imagens
+
+- Testar algoritmos que geram ruídos para criar biomas 
+
+- Aplicar um algoritmo para reconhecer a imagem com o contorno e gerar como saída a imagem do mapa
+
+
+\chapter{Fundamentação teórica}
+\label{sec:background}
+	\label{sec:fund_teorica}
+
+A fundamentação teórica apresenta os principais conceitos relacionados ao domínio do problema. Não é objetivo da fundamentação teórica apresentar um conhecimento novo. O objetivo é caracterizar o domínio do problema, apresentando os principais conceitos que viabilizem o desenvolvimento de uma solução. Pode ser entendida como a fundamentação teórica, \emph{i.e.}, conceitos teóricos computacionais e científicos utilizados no desenvolvimento do \acr{TCC}.
+
+Este capítulo pode ter várias subseções, uma para cada diferente tema abordado. Por exemplo, se o objetivo do projeto final for implementar um jogo computacional de competição em ferramentas de redes sociais, pode-se ter uma subseção tratando os jogos computacionais e seus aspectos e posteriormente uma outra subseção tratando de redes sociais. Esta organização deve ser bem definida, mas o princípio básico do bom encadeamento deve ser preservado.
+
+
+As Figuras, Tabelas e Equações devem ser numeradas e citadas no texto. A Tabela \ref{tab:exemplo} apresenta um exemplo de tabela\footnote{Observe este exemplo para que você faça tabelas simples como esta.}. A Figura \ref{fig:exemplo} apresenta um exemplo de figura. A Equação \ref{eq:exemplo} apresenta um exemplo de equação, onde $x$ é a variável independente e $y$ a variável dependente\footnote{Evite quebrar as equações no meio do texto. Use referência cruzada para citá-la e construir sua discussão.}. Cada figura, tabela e equação merece um parágrafo de explicação própria.
+
+\begin{table}[!ht]
+	\centering
+	\caption{Exemplo de tabela}
+	\begin{tabular}{L{1.5cm} R{1.5cm}}
+		\toprule
+		\textbf{x}  & \textbf{y} \\
+		\midrule
+		-2  & 4 \\
+		-1  & 1 \\
+		0  & 0 \\
+		1  & 1 \\
+		2  & 4 \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:exemplo}
+\end{table}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/figura.png}
+	\caption{Exemplo de figura}
+	\label{fig:exemplo}
+\end{figure}	
+
+\begin{equation}
+	\label{eq:exemplo}
+	f(x) = x^2, x \in [-2,2]
+\end{equation}
+
+\chapter{Trabalhos Relacionados}
+\label{sec:trabalhos_relacionados}
+	\label{sec:trab_relacionados}
+
+Após a fundamentação teórica devem ser apresentados os trabalhos relacionados referente soluções semelhantes para o problema definido. Os trabalhos relacionados demonstram o estado da arte do tema do trabalho \citep{wazlawick_metodologia_2017}. Descrevemos, de forma resumida, os trabalhos e pesquisas já efetuados na área do tema do trabalho, indicando os estudos realizados e os resultados obtidos por seus autores. Esta elaboração deve ser obtida a partir de um mapa sistemático\footnote{Eventualmente esta seção pode ficar depois da avaliação experimental}. 
+
+\chapter{Método} 
+	\label{sec:metodologia}
+
+O desenvolvimento, juntamente com a avaliação experimental, é um dos núcleos do trabalho. O desenvolvimento compreende a modelagem e a elaboração da solução propriamente dita. Deve ser apresentado de forma ordenada e ampla, com o conteúdo relevante para a apresentação da solução a que o trabalho se propõe. Fica a cargo dos autores estabelecer a estrutura deste capítulo, bem como definir os elementos que devem ser utilizados para elaborar o desenvolvimento da solução. 
+
+A modelagem da solução para a elaboração dos artefatos computacionais define os principais elementos que fazem parte da solução proposta pelo trabalho. Em um sistema de informação, por exemplo, é natural a presença de um diagrama arquitetura, diagrama de caso de uso, um diagrama de classes. Na existência de um processo importante, pode-se fazer uso de um diagrama de atividades. Da mesma forma, na existência um procedimento computacional complexo, pode-se fazer valer de especificação de um algoritmo em pseudocódigo, de diagrama de sequência, dentre outros, para explicá-lo. É importante deixar claro que o foco não é volume de elementos de diagramação e diferentes tipos de modelo, mas sim a qualidade da explicação do solução.
+
+A qualidade da explicação está intimamente ligada ao bom encadeamento deste capítulo. Isso significa dizer que se um diagrama for incorporado neste capítulo, cada elemento do diagrama precisa ser explicado. Por exemplo, se for utilizado um diagrama de classe, as principais classes e atributos devem ser apresentados, uma vez que cada uma das classes e cada atributo deve ser explicado no texto.
+
+A elaboração da solução propriamente dita apresenta um detalhamento dos elementos da solução. Pode envolver a especificação da arquitetura da solução, projeto lógico e físico da base de dados, projeto de interface gráfica, linguagem de programação adotada como os seus respectivos \emph{frameworks}. Novamente, o nível de detalhamento dos elementos da solução deve estar condizente com a explicação textual. Não é necessário apresentar todos os elementos da solução. O importante é deixar claro os elementos que valorizem a contribuição do trabalho.
+
+\chapter{Resultados}
+\label{sec:aval_exp}
+
+A avaliação experimental compreende uma avaliação quantitativa ou qualitativa do trabalho a partir de critérios estabelecidos para comparação. Como em qualquer experimento, a capacidade de reprodução é fundamental para sua validade. Sendo assim, é importante descrever o processo de experimentação adotados, apresentar os resultados propriamente dito, com uma síntese explicativa dos principais resultados. Finalmente, devem ser apresentadas as ameaças ao estudo, \emph{i.e.}, qualquer coisa que possa tirar ou limitar a validade do experimento conduzido. 
+
+\chapter{Conclusão}
+	\label{sec:conclusao}
+
+	A conclusão é a finalização do trabalho e indica as conclusões obtidas com o desenvolvimento do trabalho, sejam elas positivas ou negativas. Nas conclusões, analisa-se o que era desejado (definido na introdução com os objetivos), comparando com o que foi alcançado pelo trabalho, descrevendo como os objetivos foram alcançados e o porquê de algum objetivo não ter sido alcançado. Destacam-se também as contribuições do trabalho, incluindo os benefícios e inovações trazidas pelo trabalho.
+
+Apresentam-se os pontos do trabalho que merecem um maior aprofundamento de estudos. Isso possibilita a criação de novos trabalhos com estudos nesses pontos apresentados, na forma de uma continuidade das pesquisas efetuadas pelo trabalho. Os trabalhos futuros indicam, ainda, uma maturidade de pesquisa do autor do trabalho e esses pontos podem ser trabalhados, posteriormente.
+
+\label{bibpage}
+\renewcommand\bibname{Referências}
+\addcontentsline{toc}{section}{Referências}
+\bibliography{references}
+%\bibliographystyle{plainnat}
+\bibliographystyle{apalike}
+\label{bibfinalpage}
+
+\label{lastpage}
+\end{document}
