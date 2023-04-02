@@ -18,3 +18,4 @@ jobs:
           message: Show GitHub logo
           committer_name: GitHub Actions
           add: './latex/pdf/main.pdf'
+ 
