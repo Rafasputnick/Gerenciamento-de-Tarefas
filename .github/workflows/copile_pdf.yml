@@ -18,3 +18,4 @@ jobs:
           message: Adding pdf file
           default_author: github_actions
           add: './latex/pdf/main.pdf'
+          push: origin master --force
