@@ -1,147 +1,98 @@
-\documentclass[12pt]{tcc} 
+%Copyright 2014 Jean-Philippe Eisenbarth
+%This program is free software: you can 
+%redistribute it and/or modify it under the terms of the GNU General Public 
+%License as published by the Free Software Foundation, either version 3 of the 
+%License, or (at your option) any later version.
+%This program is distributed in the hope that it will be useful,but WITHOUT ANY 
+%WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+%PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%You should have received a copy of the GNU General Public License along with 
+%this program.  If not, see <http://www.gnu.org/licenses/>.
 
-\usepackage[brazil]{babel} 
-\usepackage[T1]{fontenc}
-%\usepackage[brazilian,hyperpageref]{backref}
-\usepackage[hidelinks]{hyperref}
-\usepackage[pt-BR]{datetime2}
-% \DTMlangsetup{showdayofmonth=false}
-\usepackage[portuguese,ruled,linesnumbered,algochapter,titlenumbered]{algorithm2e}
+%Based on the code of Yiannis Lazarides
+%http://tex.stackexchange.com/questions/42602/software-requirements-specification-with-latex
+%http://tex.stackexchange.com/users/963/yiannis-lazarides
+%Also based on the template of Karl E. Wiegers
+%http://www.se.rit.edu/~emad/teaching/slides/srs_template_sep14.pdf
+%http://karlwiegers.com
+\documentclass{scrreprt}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\hypersetup{
+    bookmarks=false,    % show bookmarks bar?
+    pdftitle={Software Requirement Specification},    % title
+    pdfauthor={Jean-Philippe Eisenbarth},                     % author
+    pdfsubject={TeX and LaTeX},                        % subject of the document
+    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}%
+\def\myversion{1.0 }
+\date{}
+%\title{%
 
-
-% As figuras ficam armazenadas na pasta figuras
-\graphicspath{{./figures/}}
-
-% Informações do trabalho
-\newcommand\dtitle{Geração de mapas procedurais a partir de visão computacional }
-\newcommand\dauthor{Lucas da Silva Santos\\Matheus Zanivan Andrade\\ Rafael Nascimento Lourenço}
-\newcommand\dadvisor{Orientador, D.Sc.\\Coorientador}
-
-% Definição de acronimos
-\newacro{TCC}{Trabalho de Conclusão de Curso}
-
+%}
+\usepackage{hyperref}
 \begin{document}
-\pagenumbering{gobble}
-\pagenumbering{roman}
 
-\dcover
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{ESPECIFICAÇÃO DE REQUERIMENTO DE SOFTWARE}\\
+        \vspace{1.2cm}
+        para\\
+        \vspace{1.2cm}
+        Gerenciador de tarefas\\
+        \vspace{1.2cm}
+        \LARGE{Versão \myversion}\\
+        \vspace{1.2cm}
+        Preparado por:  \\Lucas da Silva Santos\\Matheus Zanivan Andrade\\Rafael Nascimento Lourenço\\
+        \vspace{1.2cm}
+        Senac: Serviço Nacional de Aprendizagem Comercial\\
+        \vspace{1.2cm}
+        \today\\
+    \end{bfseries}
+\end{flushright}
 
-\dcoverback
-	
-\dlibrary{ficha.pdf}
-		
-\ddedicatory{
-	\raggedleft \normalsize Dedicatória.
-}
+\tableofcontents
 
-\dacknowledgment{
-	Agradece-se à CAPES, CNPq e FAPERJ pelo financiamento parcial desta pesquisa.\\
-	\\
-	Agradece-se também Noname.
-}
+% \chapter*{Revisão Históriica}
 
-\dresumo{
-Este roteiro traz as principais informações para a elaboração do trabalho de conclusão de curso. o trabalho deve ser escrito de modo a se mostrar interessante e importante. Para tanto, a forma de escrevê-lo, principalmente no resumo e  introdução, é fundamental. É o momento no qual o autor deve ``vender o trabalho''\footnote{Aprenda a usar as aspas corretamente olhando este exemplo.}. 
-}{palavras chaves separadas por ponto e vírgula}	
+% \begin{center}
+%     \begin{tabular}{|c|c|c|c|}
+%         \hline
+% 	    Name & Date & Reason For Changes & Version\\
+%         \hline
+% 	    21 & 22 & 23 & 24\\
+%         \hline
+% 	    31 & 32 & 33 & 34\\
+%         \hline
+%     \end{tabular}
+% \end{center}
 
-\dabstract{
-	Resumo escrito em inglês
-}{palavras chaves separadas por ponto e vírgula}
+\input{introducao.tex}
 
-\dtables
-	
+\input{posicionamento.tex}
 
-\pagenumbering{arabic}
-\justifying
-	
-\chapter{Introdução}
-\label{sec:introducao}
+\input{desc_stakeholders_usuarios.tex}
 
-\section{Propósito do Documento}
-Testeeee
-\section{Escopo do Projeto}
-\section{Definições, Acrônimos e Abreviações}
-\section{Referências}
-\section{Visão Geral do Documento}
+\input{visao_geral_produto.tex}
 
+\input{características_produto.tex}
 
+\input{requisitos_funcionais_nao_funcionais.tex}
 
-\chapter{Fundamentação teórica}
-\label{sec:background}
-	\label{sec:fund_teorica}
+\input{restricoes_projeto.tex}
 
-A fundamentação teórica apresenta os principais conceitos relacionados ao domínio do problema. Não é objetivo da fundamentação teórica apresentar um conhecimento novo. O objetivo é caracterizar o domínio do problema, apresentando os principais conceitos que viabilizem o desenvolvimento de uma solução. Pode ser entendida como a fundamentação teórica, \emph{i.e.}, conceitos teóricos computacionais e científicos utilizados no desenvolvimento do \acr{TCC}.
+\input{analise_riscos_mitigacao.tex}
 
-Este capítulo pode ter várias subseções, uma para cada diferente tema abordado. Por exemplo, se o objetivo do projeto final for implementar um jogo computacional de competição em ferramentas de redes sociais, pode-se ter uma subseção tratando os jogos computacionais e seus aspectos e posteriormente uma outra subseção tratando de redes sociais. Esta organização deve ser bem definida, mas o princípio básico do bom encadeamento deve ser preservado.
+\input{anexos.tex}
 
-
-As Figuras, Tabelas e Equações devem ser numeradas e citadas no texto. A Tabela \ref{tab:exemplo} apresenta um exemplo de tabela\footnote{Observe este exemplo para que você faça tabelas simples como esta.}. A Figura \ref{fig:exemplo} apresenta um exemplo de figura. A Equação \ref{eq:exemplo} apresenta um exemplo de equação, onde $x$ é a variável independente e $y$ a variável dependente\footnote{Evite quebrar as equações no meio do texto. Use referência cruzada para citá-la e construir sua discussão.}. Cada figura, tabela e equação merece um parágrafo de explicação própria.
-
-\begin{table}[!ht]
-	\centering
-	\caption{Exemplo de tabela}
-	\begin{tabular}{L{1.5cm} R{1.5cm}}
-		\toprule
-		\textbf{x}  & \textbf{y} \\
-		\midrule
-		-2  & 4 \\
-		-1  & 1 \\
-		0  & 0 \\
-		1  & 1 \\
-		2  & 4 \\
-		\bottomrule
-	\end{tabular}
-	\label{tab:exemplo}
-\end{table}
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/figura.png}
-	\caption{Exemplo de figura}
-	\label{fig:exemplo}
-\end{figure}	
-
-\begin{equation}
-	\label{eq:exemplo}
-	f(x) = x^2, x \in [-2,2]
-\end{equation}
-
-\chapter{Trabalhos Relacionados}
-\label{sec:trabalhos_relacionados}
-	\label{sec:trab_relacionados}
-
-Após a fundamentação teórica devem ser apresentados os trabalhos relacionados referente soluções semelhantes para o problema definido. Os trabalhos relacionados demonstram o estado da arte do tema do trabalho \citep{wazlawick_metodologia_2017}. Descrevemos, de forma resumida, os trabalhos e pesquisas já efetuados na área do tema do trabalho, indicando os estudos realizados e os resultados obtidos por seus autores. Esta elaboração deve ser obtida a partir de um mapa sistemático\footnote{Eventualmente esta seção pode ficar depois da avaliação experimental}. 
-
-\chapter{Método} 
-	\label{sec:metodologia}
-
-O desenvolvimento, juntamente com a avaliação experimental, é um dos núcleos do trabalho. O desenvolvimento compreende a modelagem e a elaboração da solução propriamente dita. Deve ser apresentado de forma ordenada e ampla, com o conteúdo relevante para a apresentação da solução a que o trabalho se propõe. Fica a cargo dos autores estabelecer a estrutura deste capítulo, bem como definir os elementos que devem ser utilizados para elaborar o desenvolvimento da solução. 
-
-A modelagem da solução para a elaboração dos artefatos computacionais define os principais elementos que fazem parte da solução proposta pelo trabalho. Em um sistema de informação, por exemplo, é natural a presença de um diagrama arquitetura, diagrama de caso de uso, um diagrama de classes. Na existência de um processo importante, pode-se fazer uso de um diagrama de atividades. Da mesma forma, na existência um procedimento computacional complexo, pode-se fazer valer de especificação de um algoritmo em pseudocódigo, de diagrama de sequência, dentre outros, para explicá-lo. É importante deixar claro que o foco não é volume de elementos de diagramação e diferentes tipos de modelo, mas sim a qualidade da explicação do solução.
-
-A qualidade da explicação está intimamente ligada ao bom encadeamento deste capítulo. Isso significa dizer que se um diagrama for incorporado neste capítulo, cada elemento do diagrama precisa ser explicado. Por exemplo, se for utilizado um diagrama de classe, as principais classes e atributos devem ser apresentados, uma vez que cada uma das classes e cada atributo deve ser explicado no texto.
-
-A elaboração da solução propriamente dita apresenta um detalhamento dos elementos da solução. Pode envolver a especificação da arquitetura da solução, projeto lógico e físico da base de dados, projeto de interface gráfica, linguagem de programação adotada como os seus respectivos \emph{frameworks}. Novamente, o nível de detalhamento dos elementos da solução deve estar condizente com a explicação textual. Não é necessário apresentar todos os elementos da solução. O importante é deixar claro os elementos que valorizem a contribuição do trabalho.
-
-\chapter{Resultados}
-\label{sec:aval_exp}
-
-A avaliação experimental compreende uma avaliação quantitativa ou qualitativa do trabalho a partir de critérios estabelecidos para comparação. Como em qualquer experimento, a capacidade de reprodução é fundamental para sua validade. Sendo assim, é importante descrever o processo de experimentação adotados, apresentar os resultados propriamente dito, com uma síntese explicativa dos principais resultados. Finalmente, devem ser apresentadas as ameaças ao estudo, \emph{i.e.}, qualquer coisa que possa tirar ou limitar a validade do experimento conduzido. 
-
-\chapter{Conclusão}
-	\label{sec:conclusao}
-
-	A conclusão é a finalização do trabalho e indica as conclusões obtidas com o desenvolvimento do trabalho, sejam elas positivas ou negativas. Nas conclusões, analisa-se o que era desejado (definido na introdução com os objetivos), comparando com o que foi alcançado pelo trabalho, descrevendo como os objetivos foram alcançados e o porquê de algum objetivo não ter sido alcançado. Destacam-se também as contribuições do trabalho, incluindo os benefícios e inovações trazidas pelo trabalho.
-
-Apresentam-se os pontos do trabalho que merecem um maior aprofundamento de estudos. Isso possibilita a criação de novos trabalhos com estudos nesses pontos apresentados, na forma de uma continuidade das pesquisas efetuadas pelo trabalho. Os trabalhos futuros indicam, ainda, uma maturidade de pesquisa do autor do trabalho e esses pontos podem ser trabalhados, posteriormente.
-
-\label{bibpage}
-\renewcommand\bibname{Referências}
-\addcontentsline{toc}{section}{Referências}
-\bibliography{references}
-%\bibliographystyle{plainnat}
-\bibliographystyle{apalike}
-\label{bibfinalpage}
-
-\label{lastpage}
 \end{document}
