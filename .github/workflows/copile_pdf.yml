@@ -18,10 +18,11 @@ jobs:
         with:
           root_file: main.tex
           working_directory: latex
-          args: -pdf --job-name=pdf/visao_projeto -f -quiet
-      - run: '(test -f ./latex/pdf/main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls ./latex/pdf/ && exit 1)'
+          args: -pdf -f -quiet
+      - run: '(test -f ./latex/main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls ./latex/ && exit 1)'
+      - run: 'cp	./latex/main.pdf	./ && mv ./main.pdf ./visao_projeto.pdf'
       - uses: EndBug/add-and-commit@v9
         with:
           message: Adding pdf file
           default_author: github_actions
-          add: './latex/pdf/main.pdf'
+          add: './visao_projeto.pdf'
