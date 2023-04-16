@@ -1,5 +1,7 @@
 # Gerenciamento de Tarefas
 
+Pdf completo no [link](https://github.com/Rafasputnick/Gerenciamento-de-Tarefas/blob/master/visao_projeto.pdf).
+
 O mercado de aplicativos de gerenciamento de tarefas está em constante expansão, com organizações e equipes buscando soluções eficientes para coordenar e acompanhar suas atividades diárias. Nesse contexto, propõe-se um aplicativo de gerenciamento de tarefas desenvolvido para desktop e dispositivos móveis, visando facilitar a criação, atribuição e acompanhamento de tarefas entre os membros de uma equipe ou organização.
 
 O aplicativo permitirá aos usuários criar listas de tarefas e adicionar detalhes importantes, como descrição e data de vencimento. Será possível atribuir tarefas a outros membros da equipe ou organização, garantindo que cada pessoa saiba quais são suas responsabilidades e prioridades.
