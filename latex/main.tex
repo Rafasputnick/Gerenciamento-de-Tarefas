@@ -22,11 +22,9 @@
 \usepackage[bookmarks=true]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage[numberedsection]{glossaries}
+\usepackage[inline]{enumitem}
+\usepackage{placeins}
 \setlist[enumerate]{label=(\alph*), nosep, leftmargin=18pt, topsep=-5pt}
-
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
     pdftitle={Software Requirement Specification},    % title
@@ -43,8 +41,37 @@
 \def\myversion{1.0}
 \date{}
 
-\input{glossario.tex}
+%}
 
+\newenvironment{enumalfa}[2][label=(\alph*), nosep, leftmargin=19pt, topsep=-5pt]
+{
+    \begin{minipage}[t]{#2\textwidth}
+    \vspace{-9pt}
+    \begin{enumerate}[#1]
+}
+{
+    \end{enumerate}
+    \vspace{9pt}
+    \end{minipage}
+}
+
+\newenvironment{enumalfa*}[1][label=(\alph*)]
+{\begin{enumerate*}[#1]}
+{\end{enumerate*}}
+
+\newenvironment{tabela}[1]
+{
+    \begin{table}[!htbp]
+    \def\arraystretch{1.2}
+    \begin{tabular}{#1}
+}
+{
+    \end{tabular}
+    \end{table}
+}
+
+\usepackage{hyperref}
+\input{glossario.tex}
 \begin{document}
 
 \begin{flushright}
