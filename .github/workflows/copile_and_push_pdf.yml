@@ -16,11 +16,11 @@ jobs:
       - name: Clone repo
         run: 'git clone https://github.com/Rafasputnick/Gerenciamento-de-Tarefas.git'
       - name: Compile LaTeX document
-        run: (pwd && ls && cd ./latex && latexmk -pdf -f -quiet main.tex)
+        run: (pwd && ls && cd ./Gerenciamento-de-Tarefas/latex && latexmk -pdf -f -quiet main.tex)
       - name: Test if pdf was compiled
-        run: '(test -f ./latex/main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls ./latex/ && exit 1)'
+        run: '(cd ./Gerenciamento-de-Tarefas && test -f ./latex/main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls ./latex/ && exit 1)'
       - name: Change filename and path of pdf
-        run: 'cp	./latex/main.pdf	./ && mv ./main.pdf ./visao_projeto.pdf'
+        run: 'cd ./Gerenciamento-de-Tarefas && cp	./latex/main.pdf	./ && mv ./main.pdf ./visao_projeto.pdf'
       - uses: EndBug/add-and-commit@v9
         with:
           message: Adding pdf file
