@@ -14,7 +14,7 @@ jobs:
       - name: Install latexmk
         run: 'sudo apt-get update -y && sudo apt-get install -y latexmk && sudo apt install texlive-full -y'
       - name: Clone repo
-        run: 'git clone https://github.com/Rafasputnick/Gerenciamento-de-Tarefas.git'
+        uses: actions/checkout@v3
       - name: Give permission
         run: 'sudo chmod -R 777 .'
       - name: Compile LaTeX document
