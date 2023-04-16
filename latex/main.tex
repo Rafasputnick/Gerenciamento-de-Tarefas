@@ -44,9 +44,9 @@
 
 %}
 
-\newenvironment{enumalfa}[1][label=(\alph*), nosep, leftmargin=19pt, topsep=-5pt]
+\newenvironment{enumalfa}[2][label=(\alph*), nosep, leftmargin=19pt, topsep=-5pt]
 {
-    \begin{minipage}[t]{0.6\textwidth}
+    \begin{minipage}[t]{#2\textwidth}
     \vspace{-9pt}
     \begin{enumerate}[#1]
 }

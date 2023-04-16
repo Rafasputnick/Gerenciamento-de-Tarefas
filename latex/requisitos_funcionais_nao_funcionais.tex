@@ -1,5 +1,5 @@
 \chapter{Requisitos Funcionais e Não Funcionais}
-\subsection{Requisitos funcionais}
+\section{Requisitos funcionais}
 
 \begin{tabela}{|p{4cm}|p{9cm}|}
     \hline
@@ -19,7 +19,7 @@
     \end{enumalfa*}\\
     \hline
     Processamento &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Verifica se o email já foi registrado
         \item Verifica se a senha tem no mínimo 8 e no máximo 16 caracteres
         \item Verifica se a senha tem no mínimo 40\% números, 40\% letras, 20\% caracteres especiais e se contem no mínimo 1 letra maiúscula
@@ -28,13 +28,13 @@
     \end{enumalfa}\\
     \hline
     Saída &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Mensagem de usuário registrado com sucesso
         \item Descrição da falha ao registrar usuário
     \end{enumalfa}\\
     \hline
     Critérios de Aceitação & 
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item O usuário é registrado com sucesso
         \item O usuário recebe uma mensagem de confirmação ou de erro
     \end{enumalfa}\\
@@ -59,14 +59,14 @@
     \end{enumalfa*}\\
     \hline
     Processamento &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Verifica se o email existe no banco de dados
         \item Verifica se a senha é correta
         \item Caso senha e email estejam correta retorna token de sessão
     \end{enumalfa} \\
     \hline
     Saída &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Mensagem de sessão iniciada com sucesso
         \item Mensagem de erro de email ou senha incorreta (não deve especificar qual)
         \item Mensagem de sessão finalizada
@@ -74,7 +74,7 @@
     \end{enumalfa}\\
     \hline
     Restrições &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item O usuário devera iniciar a sessão em no máximo 10 minutos
         \item A sessão deve durar no máximo 8 horas
         \item Se contiver a sinalização a sessão devera durar 7 dias
@@ -82,7 +82,7 @@
     \end{enumalfa}\\
     \hline
     Critérios de Aceitação &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item A sessão devera ser iniciada com sucesso
         \item Apresentar mensagem de sucesso ou de erro devidamente
         \item A sessão devera ser finalizada devidamente
@@ -111,13 +111,13 @@
     \end{enumalfa*}\\
     \hline
     Processamento &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Registar nova lista no banco de dados
         \item Caso haja falha retorna uma mensagem sobre o erro
     \end{enumalfa}\\
     \hline
     Saída &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Mensagem de lista registrada com sucesso
         \item Mensagem de lista deletada com sucesso
         \item Mensagem de lista editada com sucesso
@@ -125,14 +125,14 @@
     \end{enumalfa}\\
     \hline
     Restrições &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Uma lista não pode ter o mesmo nome e organização
         \item O usuário deve estar em uma sessão
         \item Só usuário dono da lista pode deletar
     \end{enumalfa}\\
     \hline
     Critérios de Aceitação &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item A lista devera ser criada com sucesso
         \item A lista devera ser deletada com sucesso
         \item A lista devera ser editada com sucesso
@@ -164,14 +164,14 @@
     \end{enumalfa*}\\
     \hline
     Processamento &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Registar nova tarefa no banco de dados
         \item Verifica se a organização existe
         \item Caso haja falha retorna uma mensagem sobre o erro
     \end{enumalfa}\\
     \hline
     Saída &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Mensagem de tarefa registrada com sucesso
         \item Mensagem de tarefa deletada com sucesso
         \item Mensagem de tarefa editada com sucesso
@@ -181,13 +181,13 @@
     \end{enumalfa}\\
     \hline
     Restrições &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item O usuário deve estar em uma sessão
         \item Só é possível mudar o estado caso tenha um usuário associado como responsável
     \end{enumalfa}\\
     \hline
     Critérios de Aceitação &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item A tarefa devera ser criada com sucesso
         \item A tarefa devera ser deletada com sucesso
         \item A tarefa devera ser editada com sucesso
@@ -216,14 +216,14 @@
     \end{enumalfa*}\\
     \hline
     Processamento &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Registar nova organização no banco de dados
         \item Verifica se a organização já existe
         \item Caso haja falha retorna uma mensagem sobre o erro
     \end{enumalfa} \\
     \hline
     Saída &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Mensagem de organização registrada com sucesso
         \item Mensagem de organização deletada com sucesso
         \item Mensagem de organização editada com sucesso
@@ -232,12 +232,12 @@
     \end{enumalfa}\\
     \hline
     Restrições &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item O usuário deve estar em uma sessão
     \end{enumalfa}\\
     \hline
     Critérios de Aceitação &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item A organização devera ser criada com sucesso
         \item A organização devera ser deletada com sucesso
         \item A organização devera ser editada com sucesso
@@ -264,25 +264,25 @@
     \end{enumalfa*}\\
     \hline
     Processamento &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Fazer as requisições para outras plataformas
         \item Em caso de erro retornar mensagem
     \end{enumalfa} \\
     \hline
     Saída &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Mensagem de exportação feita com sucesso
         \item Mensagem de erro na exportação
     \end{enumalfa}\\
     \hline
     Restrições &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item O usuário deve estar em uma sessão
         \item A lista de tarefas deve existir e ser do usuário
     \end{enumalfa}\\
     \hline
     Critérios de Aceitação &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item A exportação devera ser feita com sucesso
         \item A mensagem de exportação deve ser apresentada
         \item A mensagem de erro deve ser apresentada
@@ -291,7 +291,7 @@
 \end{tabela}
 
 \FloatBarrier
-\subsection{Requisitos Não Funcionais}
+\section{Requisitos Não Funcionais}
 
 \begin{tabela}{|p{4cm}|p{9cm}|}
     \hline
@@ -313,22 +313,22 @@
     \end{enumalfa*}\\
     \hline
     Processamento &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item O sistema processa a solicitação do usuário e retorna o resultado
     \end{enumalfa} \\
     \hline
     Saída &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Resultado da solicitação do usuário
     \end{enumalfa}\\
     \hline
     Restrições &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Valido somente no período de alta demanda
     \end{enumalfa}\\
     \hline
     Critérios de Aceitação &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item O tempo de resposta para todas as requisições não excede 1 segundo
     \end{enumalfa}\\
     \hline
@@ -350,22 +350,22 @@
     \end{enumalfa*}\\
     \hline
     Processamento &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item O sistema copia todo o banco de dados para outro de backup
     \end{enumalfa} \\
     \hline
     Saída &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Backup do banco de dados de produção
     \end{enumalfa}\\
     \hline
     Restrições &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Deve ser feito todos os dias durante a noite
     \end{enumalfa}\\
     \hline
     Critérios de Aceitação &
-    \begin{enumalfa}
+    \begin{enumalfa}{0.6}
         \item Dados do banco de backup deve bater com o de produção
     \end{enumalfa}\\
     \hline
