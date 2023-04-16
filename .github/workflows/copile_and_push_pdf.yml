@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install latexmk
-        run: 'sudo apt-get update -y && sudo apt-get install -y latexmk && sudo apt install texlive -y && sudo apt install texlive-lang-portuguese -y'
+        run: 'sudo apt-get update -y && sudo apt-get install -y latexmk && sudo apt install texlive -y && sudo apt install enumitem && sudo apt install texlive-lang-portuguese -y'
       - name: Clone repo
         run: 'git clone https://github.com/Rafasputnick/Gerenciamento-de-Tarefas.git'
       - name: Give permission
