@@ -1,1 +1,372 @@
 \chapter{Requisitos Funcionais e Não Funcionais}
+\section{Requisitos funcionais}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição\\
+    \hline
+    Requisito ID & 31632d44-dbe8-11ed-afa1-0242ac120002\\
+    \hline
+    Título & Criação de usuários\\
+    \hline
+    Descrição & O sistema deve permitir a criação de usuários com um senha forte senha, nome de usuário e email\\
+    \hline
+    Entrada & 
+    \begin{enumalfa*}
+        \item Nome de usuário
+        \item Senha
+        \item Email
+    \end{enumalfa*}\\
+    \hline
+    Processamento &
+    \begin{enumalfa}{0.6}
+        \item Verifica se o email já foi registrado
+        \item Verifica se a senha tem no mínimo 8 e no máximo 16 caracteres
+        \item Verifica se a senha tem no mínimo 40\% números, 40\% letras, 20\% caracteres especiais e se contem no mínimo 1 letra maiúscula
+        \item Registra o usuário no banco de dados
+        \item Informa o erro de registro (se aplicável)
+    \end{enumalfa}\\
+    \hline
+    Saída &
+    \begin{enumalfa}{0.6}
+        \item Mensagem de usuário registrado com sucesso
+        \item Descrição da falha ao registrar usuário
+    \end{enumalfa}\\
+    \hline
+    Critérios de Aceitação & 
+    \begin{enumalfa}{0.6}
+        \item O usuário é registrado com sucesso
+        \item O usuário recebe uma mensagem de confirmação ou de erro
+    \end{enumalfa}\\
+    \hline
+\end{tabela}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição\\
+    \hline
+    Requisito ID & 46d15658-dbf5-11ed-afa1-0242ac120002\\
+    \hline
+    Título & Gerenciamento de sessão\\
+    \hline
+    Descrição & O sistema deve permitir o usuário iniciar e finalizar sessão\\
+    \hline
+    Entrada & 
+    \begin{enumalfa*}
+        \item Email
+        \item Senha
+        \item Sinalização de manter sessão por um longo per período
+    \end{enumalfa*}\\
+    \hline
+    Processamento &
+    \begin{enumalfa}{0.6}
+        \item Verifica se o email existe no banco de dados
+        \item Verifica se a senha é correta
+        \item Caso senha e email estejam correta retorna token de sessão
+    \end{enumalfa} \\
+    \hline
+    Saída &
+    \begin{enumalfa}{0.6}
+        \item Mensagem de sessão iniciada com sucesso
+        \item Mensagem de erro de email ou senha incorreta (não deve especificar qual)
+        \item Mensagem de sessão finalizada
+        \item Mensagem de sessão expirada
+    \end{enumalfa}\\
+    \hline
+    Restrições &
+    \begin{enumalfa}{0.6}
+        \item O usuário devera iniciar a sessão em no máximo 10 minutos
+        \item A sessão deve durar no máximo 8 horas
+        \item Se contiver a sinalização a sessão devera durar 7 dias
+        \item O usuário não poderá acessar a tela caso já esteja em uma sessão
+    \end{enumalfa}\\
+    \hline
+    Critérios de Aceitação &
+    \begin{enumalfa}{0.6}
+        \item A sessão devera ser iniciada com sucesso
+        \item Apresentar mensagem de sucesso ou de erro devidamente
+        \item A sessão devera ser finalizada devidamente
+        \item A mensagem de sessão finalizada deve ser apresentada
+        \item A sessão expirada devera ser finalizada devidamente
+        \item A mensagem de sessão expirada deve ser apresentada
+    \end{enumalfa}\\
+    \hline
+\end{tabela}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição\\
+    \hline
+    Requisito ID & e05250e0-dbf8-11ed-afa1-0242ac120002\\
+    \hline
+    Título & Gerenciamento de lista\\
+    \hline
+    Descrição & O sistema deve permitir o usuário criar, deletar e editar listas de tarefas\\
+    \hline
+    Entrada & 
+    \begin{enumalfa*}
+        \item Nome
+        \item Descrição
+        \item Organização
+    \end{enumalfa*}\\
+    \hline
+    Processamento &
+    \begin{enumalfa}{0.6}
+        \item Registar nova lista no banco de dados
+        \item Caso haja falha retorna uma mensagem sobre o erro
+    \end{enumalfa}\\
+    \hline
+    Saída &
+    \begin{enumalfa}{0.6}
+        \item Mensagem de lista registrada com sucesso
+        \item Mensagem de lista deletada com sucesso
+        \item Mensagem de lista editada com sucesso
+        \item Mensagem de com especificação do erro
+    \end{enumalfa}\\
+    \hline
+    Restrições &
+    \begin{enumalfa}{0.6}
+        \item Uma lista não pode ter o mesmo nome e organização
+        \item O usuário deve estar em uma sessão
+        \item Só usuário dono da lista pode deletar
+    \end{enumalfa}\\
+    \hline
+    Critérios de Aceitação &
+    \begin{enumalfa}{0.6}
+        \item A lista devera ser criada com sucesso
+        \item A lista devera ser deletada com sucesso
+        \item A lista devera ser editada com sucesso
+        \item A mensagem de lista criada deve ser apresentada
+        \item A mensagem de lista deletada deve ser apresentada
+        \item A mensagem de lista editada deve ser apresentada
+    \end{enumalfa}\\
+    \hline
+\end{tabela}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição\\
+    \hline
+    Requisito ID & e26d18c4-dbfd-11ed-afa1-0242ac120002\\
+    \hline
+    Título & Gerenciamento de tarefa\\
+    \hline
+    Descrição & O sistema deve permitir o usuário criar, deletar e editar tarefas\\
+    \hline
+    Entrada & 
+    \begin{enumalfa*}
+        \item Nome
+        \item Descrição
+        \item Responsável
+        \item Organização
+        \item Data de vencimento
+        \item Estado (só apresentar no formulário o estado inicial como um campo imutável)
+    \end{enumalfa*}\\
+    \hline
+    Processamento &
+    \begin{enumalfa}{0.6}
+        \item Registar nova tarefa no banco de dados
+        \item Verifica se a organização existe
+        \item Caso haja falha retorna uma mensagem sobre o erro
+    \end{enumalfa}\\
+    \hline
+    Saída &
+    \begin{enumalfa}{0.6}
+        \item Mensagem de tarefa registrada com sucesso
+        \item Mensagem de tarefa deletada com sucesso
+        \item Mensagem de tarefa editada com sucesso
+        \item Mensagem de estado alterado com sucesso
+        \item Mensagem de com especificação do erro
+        \item O usuário responsável devera ser notificado via email
+    \end{enumalfa}\\
+    \hline
+    Restrições &
+    \begin{enumalfa}{0.6}
+        \item O usuário deve estar em uma sessão
+        \item Só é possível mudar o estado caso tenha um usuário associado como responsável
+    \end{enumalfa}\\
+    \hline
+    Critérios de Aceitação &
+    \begin{enumalfa}{0.6}
+        \item A tarefa devera ser criada com sucesso
+        \item A tarefa devera ser deletada com sucesso
+        \item A tarefa devera ser editada com sucesso
+        \item A tarefa devera ter o estado alterado com sucesso
+        \item A mensagem de tarefa criada deve ser apresentada
+        \item A mensagem de tarefa deletada deve ser apresentada
+        \item A mensagem de tarefa editada deve ser apresentada
+        \item A mensagem de estado alterado deve ser apresentada
+    \end{enumalfa}\\
+    \hline
+\end{tabela}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição \\
+    \hline
+    Requisito ID & 2ff67404-dbff-11ed-afa1-0242ac120002 \\
+    \hline
+    Título & Gerenciamento de organização \\
+    \hline
+    Descrição & O sistema deve permitir o usuário criar, deletar e editar organizações\\
+    \hline
+    Entrada & 
+    \begin{enumalfa*}
+        \item Nome
+    \end{enumalfa*}\\
+    \hline
+    Processamento &
+    \begin{enumalfa}{0.6}
+        \item Registar nova organização no banco de dados
+        \item Verifica se a organização já existe
+        \item Caso haja falha retorna uma mensagem sobre o erro
+    \end{enumalfa} \\
+    \hline
+    Saída &
+    \begin{enumalfa}{0.6}
+        \item Mensagem de organização registrada com sucesso
+        \item Mensagem de organização deletada com sucesso
+        \item Mensagem de organização editada com sucesso
+        \item Mensagem de com especificação do erro
+        \item O usuário responsável devera ser notificado via email
+    \end{enumalfa}\\
+    \hline
+    Restrições &
+    \begin{enumalfa}{0.6}
+        \item O usuário deve estar em uma sessão
+    \end{enumalfa}\\
+    \hline
+    Critérios de Aceitação &
+    \begin{enumalfa}{0.6}
+        \item A organização devera ser criada com sucesso
+        \item A organização devera ser deletada com sucesso
+        \item A organização devera ser editada com sucesso
+        \item A mensagem de organização criada deve ser apresentada
+        \item A mensagem de organização deletada deve ser apresentada
+        \item A mensagem de organização editada deve ser apresentada
+    \end{enumalfa}\\
+    \hline
+\end{tabela}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição \\
+    \hline
+    Requisito ID & d73fa51e-dbff-11ed-afa1-0242ac120002 \\
+    \hline
+    Título & Integração com outras plataformas \\
+    \hline
+    Descrição & O sistema deve permitir o usuário exportar para outras plataformas\\
+    \hline
+    Entrada & 
+    \begin{enumalfa*}
+        \item Lista de tarefas
+    \end{enumalfa*}\\
+    \hline
+    Processamento &
+    \begin{enumalfa}{0.6}
+        \item Fazer as requisições para outras plataformas
+        \item Em caso de erro retornar mensagem
+    \end{enumalfa} \\
+    \hline
+    Saída &
+    \begin{enumalfa}{0.6}
+        \item Mensagem de exportação feita com sucesso
+        \item Mensagem de erro na exportação
+    \end{enumalfa}\\
+    \hline
+    Restrições &
+    \begin{enumalfa}{0.6}
+        \item O usuário deve estar em uma sessão
+        \item A lista de tarefas deve existir e ser do usuário
+    \end{enumalfa}\\
+    \hline
+    Critérios de Aceitação &
+    \begin{enumalfa}{0.6}
+        \item A exportação devera ser feita com sucesso
+        \item A mensagem de exportação deve ser apresentada
+        \item A mensagem de erro deve ser apresentada
+    \end{enumalfa}\\
+    \hline
+\end{tabela}
+
+\FloatBarrier
+\section{Requisitos Não Funcionais}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição \\
+    \hline
+    Requisito ID & 5435a206-dc6b-11ed-afa1-0242ac120002 \\
+    \hline
+    Título & Tempo de resposta das API\\
+    \hline
+    Descrição & O sistema deve responder a solicitação do usuário em até 1 segundos\\
+    \hline
+    Entrada & 
+    \begin{enumalfa*}
+        \item Inicio de sessão
+        \item Registro de usuário
+        \item Gerenciamento de lista de tarefas
+        \item Gerenciamento de tarefas
+        \item Mudança de estado da tarefa
+    \end{enumalfa*}\\
+    \hline
+    Processamento &
+    \begin{enumalfa}{0.6}
+        \item O sistema processa a solicitação do usuário e retorna o resultado
+    \end{enumalfa} \\
+    \hline
+    Saída &
+    \begin{enumalfa}{0.6}
+        \item Resultado da solicitação do usuário
+    \end{enumalfa}\\
+    \hline
+    Restrições &
+    \begin{enumalfa}{0.6}
+        \item Valido somente no período de alta demanda
+    \end{enumalfa}\\
+    \hline
+    Critérios de Aceitação &
+    \begin{enumalfa}{0.6}
+        \item O tempo de resposta para todas as requisições não excede 1 segundo
+    \end{enumalfa}\\
+    \hline
+\end{tabela}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição \\
+    \hline
+    Requisito ID & 84f10772-dc6c-11ed-afa1-0242ac120002 \\
+    \hline
+    Título & Backup\\
+    \hline
+    Descrição & O sistema deve fazer backup\\
+    \hline
+    Entrada & 
+    \begin{enumalfa*}
+        \item Banco de dados
+    \end{enumalfa*}\\
+    \hline
+    Processamento &
+    \begin{enumalfa}{0.6}
+        \item O sistema copia todo o banco de dados para outro de backup
+    \end{enumalfa} \\
+    \hline
+    Saída &
+    \begin{enumalfa}{0.6}
+        \item Backup do banco de dados de produção
+    \end{enumalfa}\\
+    \hline
+    Restrições &
+    \begin{enumalfa}{0.6}
+        \item Deve ser feito todos os dias durante a noite
+    \end{enumalfa}\\
+    \hline
+    Critérios de Aceitação &
+    \begin{enumalfa}{0.6}
+        \item Dados do banco de backup deve bater com o de produção
+    \end{enumalfa}\\
+    \hline
+\end{tabela}

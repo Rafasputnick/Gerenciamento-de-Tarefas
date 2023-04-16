@@ -1,1 +1,89 @@
 \chapter{Restrições do Projeto}
+
+\section{Tecnologia e Padrões}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição\\
+    \hline
+    Requisito ID & 4609b258-dc70-11ed-afa1-0242ac120002\\
+    \hline
+    Título & Restrições tecnológicas do backend\\
+    \hline
+    Descrição & O sistema deve utilizar essas tecnologias\\
+    \hline
+    Tecnologias &
+    \begin{enumalfa}{0.6}
+        \item Kotlin
+        \item Prometheus
+        \item Micronaut Framework
+        \item Conexão grpc entre os microsserviços
+    \end{enumalfa}\\
+    \hline
+    Restrições & 
+    \begin{enumalfa*}
+        \item Cada microsserviços deve ser especializado em uma tarefa
+    \end{enumalfa*}\\
+    \hline
+\end{tabela}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição\\
+    \hline
+    Requisito ID & 90e0274b-eeac-46ee-a9a8-64d0a39d606c\\
+    \hline
+    Título & Restrições tecnológicas do frontend\\
+    \hline
+    Descrição & O sistema deve utilizar essas tecnologias\\
+    \hline
+    Tecnologias &
+    \begin{enumalfa}{0.6}
+        \item Kotlin
+        \item Android Studio
+        \item Firebase para métricas
+    \end{enumalfa}\\
+    \hline
+\end{tabela}
+
+\begin{tabela}{|p{4cm}|p{9cm}|}
+    \hline
+    Campo & Descrição\\
+    \hline
+    Requisito ID & eb005dfd-c1f7-412f-84bc-ab706b85332c\\
+    \hline
+    Título & Restrições Tecnológicas da infraestrutura do backend\\
+    \hline
+    Descrição & O sistema deve utilizar os serviços da AWS\\
+    \hline
+    Tecnologias &
+    \begin{enumalfa}{0.6}
+        \item AWS S3 para anexos de tarefas
+        \item AWS S3 Glacier para armazenar o backup dos anexos
+        \item AWS RDS Base de dados SQL Server com backup configurado
+        \item AWS ECS para manter os microsserviços
+        \item AWS Fargate para montar o cluster
+        \item Containerd para construir as imagens
+        \item AWS Cloudformation para infra-as-code
+        \item Kafka para mensageria
+    \end{enumalfa}\\
+    \hline
+    Restrições & 
+    \begin{enumalfa*}
+        \item Cada lista tera 1 bucket no S3
+        \item Deve ser feito todos os dias durante a noite
+        \item Os nós Fargate devem ser auto escalados em caso de demanda
+    \end{enumalfa*}\\
+    \hline
+\end{tabela}
+
+\FloatBarrier
+\section{Legislação e Regulamentações}
+
+O sistema deve ser desenvolvido de acordo com as leis e regulamentações brasileiras, isso deve ser responsabilidade da equipe que ira desenvolver o sistema, mantendo de acordo com as leis regentes, sendo essas
+
+\begin{itemize}
+    \item Lei geral de proteção de dados pessoais (Nº 13.709, de 14 de agosto de 2018)
+\end{itemize}
+
+Como forma de prevenir eventuais roubo de informação, todos os dados trafegado e armazenados devem ser criptografados e possível recuperação em caso de sequestro de dados.
