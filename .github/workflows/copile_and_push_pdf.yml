@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install latexmk
-        run: 'sudo apt-get update -y && sudo apt-get install -y latexmk && sudo apt-get install texlive-full -y'
+        run: 'sudo apt-get update -y && sudo apt-get install -y latexmk && sudo apt install texlive -y && sudo apt install enumitem && sudo apt install texlive-lang-portuguese -y && tlmgr update --self && tlmgr install scheme-full'
       - name: Clone repo
         run: 'git clone https://github.com/Rafasputnick/Gerenciamento-de-Tarefas.git'
       - name: Give permission
@@ -25,6 +25,7 @@ jobs:
         run: 'cd ./Gerenciamento-de-Tarefas && cp	./latex/main.pdf	./ && mv ./main.pdf ./visao_projeto.pdf'
       - uses: EndBug/add-and-commit@v9
         with:
+          cwd: './Gerenciamento-de-Tarefas'
           message: Adding pdf file
           default_author: github_actions
           add: './visao_projeto.pdf'
