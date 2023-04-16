@@ -1,4 +1,4 @@
-name: Copile and push latex file.
+name: Copile and push latex file
 on:
   push:
     branches:
@@ -16,7 +16,7 @@ jobs:
       - name: Clone repo
         run: 'git clone https://github.com/Rafasputnick/Gerenciamento-de-Tarefas.git'
       - name: Give permission
-        run: 'sudo chmod -R 777'
+        run: 'sudo chmod -R 777 .'
       - name: Compile LaTeX document
         run: (cd ./Gerenciamento-de-Tarefas/latex && sudo latexmk main.tex -pdf)
       - name: Test if pdf was compiled
