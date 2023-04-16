@@ -23,7 +23,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
 \usepackage{enumitem}
-\setlist[enumerate]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex}
+\usepackage{hyperref}
+\usepackage[numberedsection]{glossaries}
+\setlist[enumerate]{label=(\alph*), nosep, leftmargin=18pt, topsep=-5pt}
+
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
     pdftitle={Software Requirement Specification},    % title
@@ -39,6 +42,8 @@
 }%
 \def\myversion{1.0}
 \date{}
+
+\input{glossario.tex}
 
 \begin{document}
 
