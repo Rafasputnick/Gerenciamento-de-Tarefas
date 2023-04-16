@@ -22,7 +22,8 @@
 \usepackage[bookmarks=true]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
-\usepackage{enumitem}
+\usepackage[inline]{enumitem}
+\usepackage{placeins}
 \setlist[enumerate]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex}
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
@@ -42,6 +43,34 @@
 %\title{%
 
 %}
+
+\newenvironment{enumalfa}[1][label=(\alph*), nosep, leftmargin=19pt, topsep=-5pt]
+{
+    \begin{minipage}[t]{0.6\textwidth}
+    \vspace{-9pt}
+    \begin{enumerate}[#1]
+}
+{
+    \end{enumerate}
+    \vspace{9pt}
+    \end{minipage}
+}
+
+\newenvironment{enumalfa*}[1][label=(\alph*)]
+{\begin{enumerate*}[#1]}
+{\end{enumerate*}}
+
+\newenvironment{tabela}[1]
+{
+    \begin{table}[!htbp]
+    \def\arraystretch{1.2}
+    \begin{tabular}{#1}
+}
+{
+    \end{tabular}
+    \end{table}
+}
+
 \usepackage{hyperref}
 \begin{document}
 
