@@ -23,7 +23,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
 \usepackage[inline]{enumitem}
+\usepackage{hyperref}
 \usepackage{placeins}
+\usepackage[numberedsection]{glossaries}
 \setlist[enumerate]{label=(\alph*), nosep, leftmargin=18pt, topsep=-5pt}
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
@@ -111,6 +113,6 @@
 
 \input{analise_riscos_mitigacao.tex}
 
-\input{anexos.tex}
+\printglossary
 
 \end{document}
