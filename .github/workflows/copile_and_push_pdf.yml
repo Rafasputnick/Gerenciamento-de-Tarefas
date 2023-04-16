@@ -18,9 +18,9 @@ jobs:
       - name: Give permission
         run: 'sudo chmod -R 777 .'
       - name: Compile LaTeX document
-        run: (cd ./Gerenciamento-de-Tarefas/latex && sudo latexmk main.tex -pdf)
+        run: (pwd && ls && cd ./latex && sudo latexmk main.tex -pdf)
       - name: Test if pdf was compiled
-        run: '(cd ./Gerenciamento-de-Tarefas/latex && test -f ./main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls && exit 1)'
+        run: '(cd ./latex && test -f ./main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls && exit 1)'
       - name: Change filename and path of pdf
         run: 'cd ./Gerenciamento-de-Tarefas && cp	./latex/main.pdf	./ && mv ./main.pdf ./visao_projeto.pdf'
       - uses: EndBug/add-and-commit@v9
