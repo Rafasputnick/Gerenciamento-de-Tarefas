@@ -14,7 +14,7 @@ jobs:
       - name: Install latexmk
         run: 'sudo apt-get update -y && sudo apt-get install -y latexmk'
       - name: Compile LaTeX document
-        run: (cd latex && latexmk -pdf -f -quiet main.tex)
+        run: (pwd && cd ./latex && latexmk -pdf -f -quiet main.tex)
       - name: Test if pdf was compiled
         run: '(test -f ./latex/main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls ./latex/ && exit 1)'
       - name: Change filename and path of pdf
