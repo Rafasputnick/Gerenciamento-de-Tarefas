@@ -13,14 +13,12 @@ jobs:
     steps:
       - name: Install latexmk
         run: 'sudo apt-get update -y && sudo apt-get install -y latexmk && sudo apt install texlive-full -y'
-      - name: Adding config for make glossarie
-        run: "(cat ~/.latexmkrc && echo 'teste' >> ~/.latexmkrc)"
       - name: Clone repo
         uses: actions/checkout@v3
       - name: Give permission
         run: 'sudo chmod -R 777 .'
       - name: Compile LaTeX document
-        run: (pwd && ls && cd ./latex && sudo latexmk main.tex -pdf)
+        run: (cd ./latex && pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main && makeglossaries main && pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main)
       - name: Test if pdf was compiled
         run: '(cd ./latex && test -f ./main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls && exit 1)'
       - name: Change filename and path of pdf
