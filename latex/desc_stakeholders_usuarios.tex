@@ -2,69 +2,129 @@
 
 \section{Perfis dos Stakeholders}
 
-\begin{table}[htbp]
 \begin{tabularx}{\textwidth}{| l | X |}
-\hline
-Campo             & Descrição                                                                                                                                                                           \\ \hline
-Stakeholder ID    & SH-001                                                                                                                                                                              \\ \hline
-Nome              & Desenvolvedor                                                                                                                                                                       \\ \hline
-Descrição         & O Desenvolvedor é responsável por construir novas funcionalidades e corrigir erros.                                                                                                  \\ \hline
-Responsabilidades & 
-\begin{enumerate}[label=(\alph*) nolistsep]
-\item Entender a funcionalidade requirida do cliente
-\item Construir funcionalidades
-\item Programar parte visual (Front-end)
-\item Programar parte de serviçon
-\item Gerenciar a base de dados
-\end{enumerate}
+    \hline
+    Campo             & Descrição                                                                                                                                                                           \\ \hline
+    
+    Stakeholder ID    & SH-001                                                                                                                                                                              \\ \hline
+    
+    Nome              & Desenvolvedor                                                                                                                                                                       \\ \hline
+    
+    Descrição         & O Desenvolvedor é responsável por construir novas funcionalidades e corrigir erros
+    \\ \hline
+  
+    Responsabilidades & 
+    \begin{enumerate}
+        \item Entender a funcionalidade requirida do cliente
+        \item Construir funcionalidades
+        \item Programar parte visual (\Gls{front})
+        \item Programar parte de serviço
+        \item Gerenciar a base de dados
+    \end{enumerate}
 
-\\ \hline
-Expectativas      & (a) Entregar o tarefas atribuídas dentro do prazo (b) Desenvolver um código limpo e eficiente                                                                                   \\ \hline
-Interesses        & (a) Concluir o projeto com sucesso (b) Alcançar os objetivos do projeto (c) Manter a satisfação do cliente                                                                           \\ \hline
+    \\ \hline
+    Expectativas      & 
+    \begin{enumerate}
+        \item Entregar o tarefas atribuídas dentro do prazo
+        \item Desenvolver um código limpo e eficiente
+    \end{enumerate}
+    
+    \\ \hline
+    Interesses        & 
+    \begin{enumerate}
+        \item Concluir o projeto com sucesso
+        \item Alcançar os objetivos do projeto
+        \item Manter a satisfação do cliente
+    \end{enumerate}
+
+    \\ \hline    
 \end{tabularx}
-\end{table}   
 
-\begin{table}[htbp]
+\vspace{1cm}
+
+\noindent
 \begin{tabularx}{\textwidth}{| l | X |}
 \hline
 Campo             & Descrição                                                                                                                                                                           \\ \hline
 Stakeholder ID    & SH-002                                                                                                                                                                              \\ \hline
 Nome              & Analista de testes                                                                                                                                                                       \\ \hline
-Descrição         & O Analista de testes é responsável garantir a qualidade do código.                                                                                                  \\ \hline
-Responsabilidades & (a) Analisar os pull requests (b) Criar testes unitário e e2e (c) Criar tarefas para o desenvolvedor caso encontre algum erro no código \\ \hline
-Expectativas      & (a) Entregar o tarefas atribuídas dentro do prazo (b) Garantir a qualidade do projeto                                                                                   \\ \hline
-Interesses        & (a) Concluir o projeto com sucesso (b) Alcançar os objetivos do projeto (c) Manter a qualidade de software                                                                           \\ \hline
+Descrição         & O Analista de testes é responsável garantir a qualidade do código
+\\ \hline
+Responsabilidades & 
+\begin{enumerate}
+    \item Analisar os \gls{prs}
+    \item Criar testes unitários e \acrshort{e2e}
+    \item Criar tarefas para o desenvolvedor caso encontre algum erro no código
+\end{enumerate}
+\\ \hline
+
+Expectativas      &
+\begin{enumerate}
+    \item Entregar o tarefas atribuídas dentro do prazo
+    \item Garantir a qualidade do projeto
+\end{enumerate}
+\\ \hline
+
+Interesses        &
+\begin{enumerate}
+    \item Concluir o projeto com sucesso
+    \item Alcançar os objetivos do projeto
+    \item Manter a qualidade de software
+\end{enumerate}
+\\ \hline
 
 \end{tabularx}
-\end{table}   
 
+\vspace{1cm}
 \section{Perfis dos Usuários}
 
-\begin{table}[htbp]
 \begin{tabularx}{\textwidth}{| l | X |}
 \hline
 Campo             & Descrição                                                                                                                                                                           \\ \hline
 Usuário ID    & U-001                                                                                                                                                                              \\ \hline
 Nome              & Usuário padrão                                                                                                                                                                       \\ \hline
-Descrição         & O usuário padrão será gerenciado pelo dono do projeto.                                                                                                  \\ \hline
-Permissões & (a) atribuir-se a uma tarefa (b) mudar o status de uma tarefa que foi-lhe atribuída (c) adicionar descrição a uma tarefa 
+Descrição         & O usuário padrão será gerenciado pelo dono do projeto
+\\ \hline
+Permissões &
+\begin{enumerate}
+    \item Atribuir-se a uma tarefa
+    \item Mudar o status de uma tarefa que foi-lhe atribuída
+    \item Adicionar descrição a uma tarefa 
+\end{enumerate}
 \\ \hline
 \end{tabularx}
-\end{table}
 
+\vspace{1cm}
 
-
-\begin{table}[htbp]
+\noindent
 \begin{tabularx}{\textwidth}{| l | X |}
 \hline
 Campo             & Descrição                                                                                                                                                                           \\ \hline
 Usuário ID    & U-002                                                                                                                                                                              \\ \hline
 Nome              & Dono do projeto                                                                                                                                                                       \\ \hline
-Descrição         & O Dono do projeto adminstrara a sua(s) equipe(s).                                                                                                  \\ \hline
-Permissões & (a) gerenciar permissões dos integrantes da equipe (b) criar ou editar ou deletar equipe de um projeto (c) adicionar e retirar integrantes da equipe (d) todas permissões do usuário padrão  \\ \hline
+Descrição         & O Dono do projeto adminstrara a sua(s) equipe(s) 
+\\ \hline
+Permissões &
+\begin{enumerate}
+    \item Gerenciar permissões dos integrantes da equipe
+    \item Criar ou editar ou deletar equipe de um projeto 
+    \item Adicionar e retirar integrantes da equipe
+    \item Todas permissões do usuário padrão
+\end{enumerate}
+\\ \hline
 
 \end{tabularx}
-\end{table}   
 
+\vspace{1cm}
 
 \section{Principais Necessidades dos Usuários}
+
+As principais necessidades do usuário serão:
+\begin{enumerate}[leftmargin=2.5\parindent]
+    \item Criar uma conta
+    \item Entrar com sua conta 
+    \item Entrar em um projeto
+    \item Adicionar e editar tarefas
+    \item Gerenciar o projeto com permissões
+    \item Receber notificações por e-mail quando há alterações em  tarefas atribuídas ao usuário
+\end{enumerate}
