@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Install latexmk
         run: 'sudo apt-get update -y && sudo apt-get install -y latexmk'
+      - name: Clone repo
+        run: 'git clone git@github.com:Rafasputnick/Gerenciamento-de-Tarefas.git'
       - name: Compile LaTeX document
         run: (pwd && ls && cd ./latex && latexmk -pdf -f -quiet main.tex)
       - name: Test if pdf was compiled
