@@ -11,16 +11,14 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v2
+      - name: Install latexmk
+        run: 'sudo apt-get update -y && sudo apt-get install -y latexmk'
       - name: Compile LaTeX document
-        uses: dante-ev/latex-action@latest
-        with:
-          root_file: main.tex
-          working_directory: latex
-          args: -pdf -f -quiet
-      - run: '(test -f ./latex/main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls ./latex/ && exit 1)'
-      - run: 'cp	./latex/main.pdf	./ && mv ./main.pdf ./visao_projeto.pdf'
+        run: (cd latex && latexmk -pdf -f -quiet main.tex)
+      - name: Test if pdf was compiled
+        run: '(test -f ./latex/main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls ./latex/ && exit 1)'
+      - name: Change filename and path of pdf
+        run: 'cp	./latex/main.pdf	./ && mv ./main.pdf ./visao_projeto.pdf'
       - uses: EndBug/add-and-commit@v9
         with:
           message: Adding pdf file
