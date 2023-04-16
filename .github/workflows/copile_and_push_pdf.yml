@@ -16,7 +16,7 @@ jobs:
       - name: Clone repo
         run: 'git clone https://github.com/Rafasputnick/Gerenciamento-de-Tarefas.git'
       - name: Compile LaTeX document
-        run: (pwd && ls && cd ./Gerenciamento-de-Tarefas/latex && latexmk -pdf -f -quiet main.tex)
+        run: (cd ./Gerenciamento-de-Tarefas/latex && pwd && ls && latexmk -pdf -f -quiet main.tex)
       - name: Test if pdf was compiled
         run: '(cd ./Gerenciamento-de-Tarefas && test -f ./latex/main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls ./latex/ && exit 1)'
       - name: Change filename and path of pdf
