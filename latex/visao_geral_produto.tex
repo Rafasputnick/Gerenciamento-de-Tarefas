@@ -1,20 +1,20 @@
 \chapter{Visão Geral do Produto}
 
 \section{Perspectiva do Produto}
-O software em questão será gratuito e pode ter conexões com outros softwares para migração ou para utilizar vários gerenciadores de forma paralela.
-Esta solução tem público-alvo principalmente equipes de trabalho que atuam com métodos agéis, pois separar e atribuir as tarefas entre os participantes da equipes
+O software em questão será gratuito e pode ter conexões com outras plataformas para migração ou para utilizar vários gerenciadores de tarefas de forma paralela.
+Esta solução tem público-alvo equipes de trabalho que atuam com métodos agéis pois separar e atribuir as tarefas entre os participantes da equipe
 por grau de prioridades pode ser algo demorado, logo com a intuitiva interface do produto produzido poderá auxiliar no desenvolvimento dessas equipes.
-O principal foco é entregar uma alternativa rápida e de fácil usabilidade de forma gratuita para garantir um aumento de desempenho em equipes de metodologias agéis.
+O principal foco é entregar uma alternativa rápida com uma usabilidade simples de forma gratuita para garantir um aumento de desempenho em equipes de metodologias agéis.
 
 \section{Suposições e Dependências}
 Supondo que uma equipe de trabalho atuando com metódo agíl está utilizando a ferramenta paga Microsoft Planner, porém estão necessitando cortar gastos e procuram uma ferramenta
-que seja gratuita. Caso escolham nossa opção existirá uma dependência para migrar todas as informações de tarefas do antigo sistema para o novo. Logo teremos que atualizar a
-essa funcionalidade de migração pois é atrelado a um software externo.
-Para evitar complicações devemos criar testes \acrshort{e2e} com rotinas semanais para testar esta funcionalidade de migração de dados entre plataformas.
+que seja gratuita. Caso escolham esta opção existirá uma dependência para migrar todas as informações de tarefas do antigo sistema para o novo. Logo teremos que tomar cuidado com a
+possíveis atualizações da plataforma dependente que quebrem algo na migração.
+Para evitar complicações devemos criar testes \acrshort{e2e} com rotinas semanais para testar a migração de dados entre plataformas.
 
 \section{Capacidades do Produto}
 A principal funcionalidade será a atribuição de tarefas de forma simples e intuitiva, logo o usuário leigo não terá dificuldades no primeiro contato conseguindo assim
-melhorar a produtividade da equipe como um todo. A funcionalidade de notificar quando atribuído alguma tarefa ao integrante da organização, portanto receberá um e-mail
-de forma automática para poupar de checar no site ou aplicativo todos os dias.
+melhorar a produtividade da equipe como um todo. A funcionalidade de notificar quando atribuído alguma tarefa ao integrante da organização enviará um e-mail
+de forma automática para poupar de checar o site ou aplicativo todos os dias.
 Todas as requisições e interações dentro da plataforma deve executar em menos de um segundo, e a escalabilidade será automatizada na nuvem da AWS.
-O âmbito central de qualidade será a facilidade do uso do App, além da cobertura de códigos para garantir a eficiência das atualizações.
+O âmbito central da qualidade será baseado na facilidade do uso do App, além da cobertura de testes para garantir a eficiência das atualizações.

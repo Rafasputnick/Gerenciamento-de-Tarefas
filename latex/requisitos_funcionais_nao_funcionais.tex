@@ -1,4 +1,4 @@
-\chapter{Requisitos Funcionais e Não Funcionais}
+{\let\clearpage\relax \chapter{Requisitos Funcionais e Não Funcionais}}
 \section{Requisitos funcionais}
 
 \begin{tabela}{|p{4cm}|p{9cm}|}
@@ -9,18 +9,18 @@
     \hline
     Título & Criação de usuários\\
     \hline
-    Descrição & O sistema deve permitir a criação de usuários com um senha forte senha, nome de usuário e email\\
+    Descrição & O sistema deve permitir a criação de usuários com senha, nome de usuário e e-mail\\
     \hline
     Entrada & 
-    \begin{enumalfa*}
+    \begin{enumalfa}{0.6}
         \item Nome de usuário
         \item Senha
-        \item Email
-    \end{enumalfa*}\\
+        \item e-mail
+    \end{enumalfa}\\
     \hline
     Processamento &
     \begin{enumalfa}{0.6}
-        \item Verifica se o email já foi registrado
+        \item Verifica se o e-mail já foi registrado
         \item Verifica se a senha tem no mínimo 8 e no máximo 16 caracteres
         \item Verifica se a senha tem no mínimo 40\% números, 40\% letras, 20\% caracteres especiais e se contem no mínimo 1 letra maiúscula
         \item Registra o usuário no banco de dados
@@ -52,42 +52,42 @@
     Descrição & O sistema deve permitir o usuário iniciar e finalizar sessão\\
     \hline
     Entrada & 
-    \begin{enumalfa*}
-        \item Email
+    \begin{enumalfa}{0.6}
+        \item e-mail
         \item Senha
         \item Sinalização de manter sessão por um longo per período
-    \end{enumalfa*}\\
+    \end{enumalfa}\\
     \hline
     Processamento &
     \begin{enumalfa}{0.6}
-        \item Verifica se o email existe no banco de dados
+        \item Verifica se o e-mail existe no banco de dados
         \item Verifica se a senha é correta
-        \item Caso senha e email estejam correta retorna token de sessão
+        \item Caso senha e e-mail estejam corretos retorna \gls{token} de sessão
     \end{enumalfa} \\
     \hline
     Saída &
     \begin{enumalfa}{0.6}
         \item Mensagem de sessão iniciada com sucesso
-        \item Mensagem de erro de email ou senha incorreta (não deve especificar qual)
+        \item Mensagem de erro de e-mail ou senha incorreta (não deve especificar qual)
         \item Mensagem de sessão finalizada
         \item Mensagem de sessão expirada
     \end{enumalfa}\\
     \hline
     Restrições &
     \begin{enumalfa}{0.6}
-        \item O usuário devera iniciar a sessão em no máximo 10 minutos
+        \item O usuário deverá iniciar a sessão em no máximo 10 minutos
         \item A sessão deve durar no máximo 8 horas
-        \item Se contiver a sinalização a sessão devera durar 7 dias
+        \item Se contiver a sinalização a sessão deverá durar 7 dias
         \item O usuário não poderá acessar a tela caso já esteja em uma sessão
     \end{enumalfa}\\
     \hline
     Critérios de Aceitação &
     \begin{enumalfa}{0.6}
-        \item A sessão devera ser iniciada com sucesso
+        \item A sessão deverá ser iniciada com sucesso
         \item Apresentar mensagem de sucesso ou de erro devidamente
-        \item A sessão devera ser finalizada devidamente
+        \item A sessão deverá ser finalizada devidamente
         \item A mensagem de sessão finalizada deve ser apresentada
-        \item A sessão expirada devera ser finalizada devidamente
+        \item A sessão expirada deverá ser finalizada devidamente
         \item A mensagem de sessão expirada deve ser apresentada
     \end{enumalfa}\\
     \hline
@@ -104,11 +104,11 @@
     Descrição & O sistema deve permitir o usuário criar, deletar e editar listas de tarefas\\
     \hline
     Entrada & 
-    \begin{enumalfa*}
+    \begin{enumalfa}{0.6}
         \item Nome
         \item Descrição
         \item Organização
-    \end{enumalfa*}\\
+    \end{enumalfa}\\
     \hline
     Processamento &
     \begin{enumalfa}{0.6}
@@ -133,9 +133,9 @@
     \hline
     Critérios de Aceitação &
     \begin{enumalfa}{0.6}
-        \item A lista devera ser criada com sucesso
-        \item A lista devera ser deletada com sucesso
-        \item A lista devera ser editada com sucesso
+        \item A lista deverá ser criada com sucesso
+        \item A lista deverá ser deletada com sucesso
+        \item A lista deverá ser editada com sucesso
         \item A mensagem de lista criada deve ser apresentada
         \item A mensagem de lista deletada deve ser apresentada
         \item A mensagem de lista editada deve ser apresentada
@@ -154,14 +154,14 @@
     Descrição & O sistema deve permitir o usuário criar, deletar e editar tarefas\\
     \hline
     Entrada & 
-    \begin{enumalfa*}
+    \begin{enumalfa}{0.6}
         \item Nome
         \item Descrição
         \item Responsável
         \item Organização
         \item Data de vencimento
         \item Estado (só apresentar no formulário o estado inicial como um campo imutável)
-    \end{enumalfa*}\\
+    \end{enumalfa}\\
     \hline
     Processamento &
     \begin{enumalfa}{0.6}
@@ -177,7 +177,7 @@
         \item Mensagem de tarefa editada com sucesso
         \item Mensagem de estado alterado com sucesso
         \item Mensagem de com especificação do erro
-        \item O usuário responsável devera ser notificado via email
+        \item O usuário responsável deverá ser notificado via e-mail
     \end{enumalfa}\\
     \hline
     Restrições &
@@ -188,10 +188,10 @@
     \hline
     Critérios de Aceitação &
     \begin{enumalfa}{0.6}
-        \item A tarefa devera ser criada com sucesso
-        \item A tarefa devera ser deletada com sucesso
-        \item A tarefa devera ser editada com sucesso
-        \item A tarefa devera ter o estado alterado com sucesso
+        \item A tarefa deverá ser criada com sucesso
+        \item A tarefa deverá ser deletada com sucesso
+        \item A tarefa deverá ser editada com sucesso
+        \item A tarefa deverá ter o estado alterado com sucesso
         \item A mensagem de tarefa criada deve ser apresentada
         \item A mensagem de tarefa deletada deve ser apresentada
         \item A mensagem de tarefa editada deve ser apresentada
@@ -211,9 +211,9 @@
     Descrição & O sistema deve permitir o usuário criar, deletar e editar organizações\\
     \hline
     Entrada & 
-    \begin{enumalfa*}
+    \begin{enumalfa}{0.6}
         \item Nome
-    \end{enumalfa*}\\
+    \end{enumalfa}\\
     \hline
     Processamento &
     \begin{enumalfa}{0.6}
@@ -228,7 +228,7 @@
         \item Mensagem de organização deletada com sucesso
         \item Mensagem de organização editada com sucesso
         \item Mensagem de com especificação do erro
-        \item O usuário responsável devera ser notificado via email
+        \item O usuário responsável deverá ser notificado via e-mail
     \end{enumalfa}\\
     \hline
     Restrições &
@@ -238,9 +238,9 @@
     \hline
     Critérios de Aceitação &
     \begin{enumalfa}{0.6}
-        \item A organização devera ser criada com sucesso
-        \item A organização devera ser deletada com sucesso
-        \item A organização devera ser editada com sucesso
+        \item A organização deverá ser criada com sucesso
+        \item A organização deverá ser deletada com sucesso
+        \item A organização deverá ser editada com sucesso
         \item A mensagem de organização criada deve ser apresentada
         \item A mensagem de organização deletada deve ser apresentada
         \item A mensagem de organização editada deve ser apresentada
@@ -259,9 +259,9 @@
     Descrição & O sistema deve permitir o usuário exportar para outras plataformas\\
     \hline
     Entrada & 
-    \begin{enumalfa*}
+    \begin{enumalfa}{0.6}
         \item Lista de tarefas
-    \end{enumalfa*}\\
+    \end{enumalfa}\\
     \hline
     Processamento &
     \begin{enumalfa}{0.6}
@@ -283,7 +283,7 @@
     \hline
     Critérios de Aceitação &
     \begin{enumalfa}{0.6}
-        \item A exportação devera ser feita com sucesso
+        \item A exportação deverá ser feita com sucesso
         \item A mensagem de exportação deve ser apresentada
         \item A mensagem de erro deve ser apresentada
     \end{enumalfa}\\
@@ -304,13 +304,13 @@
     Descrição & O sistema deve responder a solicitação do usuário em até 1 segundos\\
     \hline
     Entrada & 
-    \begin{enumalfa*}
+    \begin{enumalfa}{0.6}
         \item Inicio de sessão
         \item Registro de usuário
         \item Gerenciamento de lista de tarefas
         \item Gerenciamento de tarefas
         \item Mudança de estado da tarefa
-    \end{enumalfa*}\\
+    \end{enumalfa}\\
     \hline
     Processamento &
     \begin{enumalfa}{0.6}
@@ -345,9 +345,9 @@
     Descrição & O sistema deve fazer backup\\
     \hline
     Entrada & 
-    \begin{enumalfa*}
+    \begin{enumalfa}{0.6}
         \item Banco de dados
-    \end{enumalfa*}\\
+    \end{enumalfa}\\
     \hline
     Processamento &
     \begin{enumalfa}{0.6}

@@ -8,7 +8,7 @@
     \hline
     Requisito ID & 4609b258-dc70-11ed-afa1-0242ac120002\\
     \hline
-    Título & Restrições tecnológicas do backend\\
+    Título & Restrições tecnológicas do \gls{back}\\
     \hline
     Descrição & O sistema deve utilizar essas tecnologias\\
     \hline
@@ -21,9 +21,9 @@
     \end{enumalfa}\\
     \hline
     Restrições & 
-    \begin{enumalfa*}
+    \begin{enumalfa}{0.6}
         \item Cada microsserviços deve ser especializado em uma tarefa
-    \end{enumalfa*}\\
+    \end{enumalfa}\\
     \hline
 \end{tabela}
 
@@ -52,7 +52,7 @@
     \hline
     Requisito ID & eb005dfd-c1f7-412f-84bc-ab706b85332c\\
     \hline
-    Título & Restrições Tecnológicas da infraestrutura do backend\\
+    Título & Restrições Tecnológicas da infraestrutura do \gls{back}\\
     \hline
     Descrição & O sistema deve utilizar os serviços da AWS\\
     \hline
@@ -64,16 +64,16 @@
         \item AWS ECS para manter os microsserviços
         \item AWS Fargate para montar o cluster
         \item Containerd para construir as imagens
-        \item AWS Cloudformation para infra-as-code
+        \item AWS Cloudformation para \gls{infraAC}
         \item Kafka para mensageria
     \end{enumalfa}\\
     \hline
     Restrições & 
-    \begin{enumalfa*}
+    \begin{enumalfa}{0.6}
         \item Cada lista tera 1 bucket no S3
         \item Deve ser feito todos os dias durante a noite
         \item Os nós Fargate devem ser auto escalados em caso de demanda
-    \end{enumalfa*}\\
+    \end{enumalfa}\\
     \hline
 \end{tabela}
 
