@@ -29,13 +29,12 @@ jobs:
       - id: matrix
         run: >
           echo '::set-output name=value::["visao_projeto", "modelagem_projeto" , "prova"]'
-
   compile_latex:
     needs: [make_matrix, clone_repo_and_install_dependencies]
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        value: ${{fromJson(needs.setup.outputs.matrix)}}
+        value: ${{fromJson(needs.make_matrix.outputs.matrix)}}
     steps:
       - name: Compile LaTeX document
         run: >
