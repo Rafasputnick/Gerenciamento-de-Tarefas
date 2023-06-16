@@ -43,7 +43,7 @@ jobs:
         
       - name: Test if pdf was compiled
         run: >
-              (cd ./latex/${{ matrix.value }} && test -f ./${{ matrix.value }}.pdf && echo PDF exists) || 
+              (cd ./latex/${{ matrix.value }} && test -f ./main.pdf && echo PDF exists) || 
               (echo PDF does not exist && pwd && ls && exit 1)      - name: Change filename and path of pdf
       - name: Change path of pdf
         run: >
