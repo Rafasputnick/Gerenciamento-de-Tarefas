@@ -36,10 +36,10 @@ jobs:
       - name: Compile LaTeX document
         run: >
               cd ./latex/${{matrix.value}} &&
-              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -jobname=${{ matrix.value }} main &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main &&
               makeglossaries main &&
-              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -jobname=${{ matrix.value }} main &&
-              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -jobname=${{ matrix.value }} main
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main
         
       - name: Test if pdf was compiled
         run: >
@@ -47,7 +47,8 @@ jobs:
               (echo PDF does not exist && pwd && ls && exit 1)      - name: Change filename and path of pdf
       - name: Change path of pdf
         run: >
-              cp	./latex/${{ matrix.value }}.pdf	./
+              mv ./${{ matrix.value }}/main.pdf ./${{ matrix.value }}/${{ matrix.value }}.pdf &&
+              cp	./latex/${{ matrix.value }}/${{ matrix.value }}.pdf	./
       - uses: EndBug/add-and-commit@v9
         with:
           message: Adding pdfs files
