@@ -8,23 +8,55 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_latex:
+  clone_repo_and_install_dependencies:
     runs-on: ubuntu-latest
     steps:
-      - name: Install latexmk
-        run: 'sudo apt-get update -y && sudo apt-get install -y latexmk && sudo apt install texlive-full -y'
+      - name: Install texlive dependencies
+        run: >
+              sudo apt-get update -y && 
+              sudo apt install texlive -y &&
+              sudo apt-get install texlive-latex-extra -y &&
+              sudo apt-get install texlive-lang-portuguese -y
       - name: Clone repo
         uses: actions/checkout@v3
       - name: Give permission
         run: 'sudo chmod -R 777 .'
+  make_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.value }}
+    steps:
+      - id: matrix
+        run: >
+          echo '::set-output name=value::["visao_projeto", "modelagem_projeto" , "prova"]'
+
+  compile_latex:
+    needs: [make_matrix, clone_repo_and_install_dependencies]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        value: ${{fromJson(needs.setup.outputs.matrix)}}
+    steps:
       - name: Compile LaTeX document
-        run: (cd ./latex && pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main && makeglossaries main && pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main  && pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main)
+        run: >
+              cd ./latex/${{matrix.value}} &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -jobname=${{ matrix.value }} main &&
+              makeglossaries main &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -jobname=${{ matrix.value }} main &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -jobname=${{ matrix.value }} main
+        
       - name: Test if pdf was compiled
-        run: '(cd ./latex && test -f ./main.pdf && echo PDF exists) || (echo PDF does not exist && pwd && ls && exit 1)'
-      - name: Change filename and path of pdf
-        run: 'cp	./latex/main.pdf	./ && mv ./main.pdf ./visao_projeto.pdf'
+        run: >
+              (cd ./latex/${{ matrix.value }} && test -f ./${{ matrix.value }}.pdf && echo PDF exists) || 
+              (echo PDF does not exist && pwd && ls && exit 1)      - name: Change filename and path of pdf
+      - name: Change path of pdf
+        run: >
+              cp	./latex/${{ matrix.value }}.pdf	./ &&
+  push:
+    needs: [make_matrix, clone_repo_and_install_dependencies, compile_latex]
+    runs-on: ubuntu-latest  
+    steps:
       - uses: EndBug/add-and-commit@v9
         with:
-          message: Adding pdf file
+          message: Adding pdfs files
           default_author: github_actions
-          add: './visao_projeto.pdf'

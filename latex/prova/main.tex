@@ -1,0 +1,110 @@
+%Copyright 2014 Jean-Philippe Eisenbarth
+%This program is free software: you can 
+%redistribute it and/or modify it under the terms of the GNU General Public 
+%License as published by the Free Software Foundation, either version 3 of the 
+%License, or (at your option) any later version.
+%This program is distributed in the hope that it will be useful,but WITHOUT ANY 
+%WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+%PARTICULAR PURPOSE. See the GNU General Public License for more details.
+%You should have received a copy of the GNU General Public License along with 
+%this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%Based on the code of Yiannis Lazarides
+%http://tex.stackexchange.com/questions/42602/software-requirements-specification-with-latex
+%http://tex.stackexchange.com/users/963/yiannis-lazarides
+%Also based on the template of Karl E. Wiegers
+%http://www.se.rit.edu/~emad/teaching/slides/srs_template_sep14.pdf
+%http://karlwiegers.com
+\documentclass{scrreprt}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{underscore}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage[inline]{enumitem}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage[numberedsection]{glossaries}
+\setlist[enumerate]{label=(\alph*), nosep, leftmargin=18pt, topsep=-5pt}
+\hypersetup{
+    bookmarks=false,    % show bookmarks bar?
+    pdftitle={ESPECIFICAÇAO DE REQUERIMENTO DE  SOFTWARE},    % title
+    pdfsubject={TeX and LaTeX},                        % subject of the document
+    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}%
+\def\myversion{1.0}
+\date{}
+
+%}
+
+\newenvironment{enumalfa}[2][label=(\alph*), nosep, leftmargin=19pt, topsep=-5pt]
+{
+    \begin{minipage}[t]{#2\textwidth}
+    \vspace{-9pt}
+    \begin{enumerate}[#1]
+}
+{
+    \end{enumerate}
+    \vspace{9pt}
+    \end{minipage}
+}
+
+\newenvironment{enumalfa*}[1][label=(\alph*)]
+{\begin{enumerate*}[#1]}
+{\end{enumerate*}}
+
+\newenvironment{tabela}[1]
+{
+    \begin{table}[!htbp]
+    \def\arraystretch{1.2}
+    \begin{tabular}{#1}
+}
+{
+    \end{tabular}
+    \end{table}
+}
+
+\usepackage{hyperref}
+\input{glossario.tex}
+\begin{document}
+
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{ESPECIFICAÇÃO DE REQUERIMENTO DE SOFTWARE}\\
+        \vspace{1.2cm}
+        para\\
+        \vspace{1.2cm}
+        Gerenciador de tarefas\\
+        \vspace{1.2cm}
+        \LARGE{Versão \myversion}\\
+        \vspace{1.2cm}
+        Preparado por:  \\Lucas da Silva Santos\\Matheus Zanivan Andrade\\Rafael Nascimento Lourenço\\
+        \vspace{1.2cm}
+        Senac: Serviço Nacional de Aprendizagem Comercial\\
+        \vspace{1.2cm}
+        \today\\
+    \end{bfseries}
+\end{flushright}
+
+\tableofcontents
+
+\input{wireframe.tex}
+
+\input{plano_testes.tex}
+
+\input{teste_carga.tex}
+
+\input{gestao_mudanca.tex}
+
+
+\printglossary
+
+\end{document}
