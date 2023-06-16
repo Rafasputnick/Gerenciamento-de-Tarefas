@@ -47,8 +47,7 @@ jobs:
               (echo PDF does not exist && pwd && ls && exit 1)
       - name: Change path of pdf
         run: >
-              mv ./${{ matrix.value }}/main.pdf ./${{ matrix.value }}/${{ matrix.value }}.pdf &&
-              cp	./latex/${{ matrix.value }}/${{ matrix.value }}.pdf	./
+              mv ./latex/${{ matrix.value }}/main.pdf ./${{ matrix.value }}.pdf
       - uses: EndBug/add-and-commit@v9
         with:
           message: Adding pdfs files
