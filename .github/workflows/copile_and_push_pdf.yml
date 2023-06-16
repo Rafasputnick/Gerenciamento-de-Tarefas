@@ -49,10 +49,9 @@ jobs:
         run: >
               (cd ./latex/${{ matrix.value }} && test -f ./${{ matrix.value }}.pdf && echo PDF exists) || 
               (echo PDF does not exist && pwd && ls && exit 1)      - name: Change filename and path of pdf
-      - name: Change filename and path of pdf
+      - name: Change path of pdf
         run: >
-              cp	./latex/main.pdf	./ &&
-              mv ./main.pdf ./tcc.pdf
+              cp	./latex/${{ matrix.value }}.pdf	./ &&
   push:
     needs: [make_matrix, clone_repo_and_install_dependencies, compile_latex]
     runs-on: ubuntu-latest  
