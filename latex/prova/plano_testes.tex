@@ -1,0 +1,67 @@
+\chapter{Plano de testes}
+
+    \begin{tabularx}{\textwidth}{|X|X|}
+        \hline
+        Seção & Descrição \\
+        \hline
+        Identificador do Plano de Teste & Plano de Teste para a Funcionalidade de gerenciamento de tarefas. \\
+        \hline
+        Introdução & Este plano de teste tem como objetivo garantir o correto funcionamento do recurso de gerenciamento de tarefas em nosso aplicativo de gerenciamento de tarefas. \\
+        \hline
+        Itens de Teste & A funcionalidade de tarefas do aplicativo. \\
+        \hline
+        Funcionalidades a serem Testadas & Criar, deletar e editar as tarefas devem conter as mesmas informações no contexto do usuário e no banco de dados ápos a confirmação da ação. \\
+        \hline
+        Funcionalidades que não serão Testadas & Funcionalidades não relacionadas à tarefas do aplicativo. \\
+        \hline
+        Abordagem & Usaremos testes manuais \acrshort{e2e}. Portanto criaremos testes que irão checar o fluxo por completo, em cada parte terá uma validação da resposta. O fluxo será criar uma tarefa, seguido de editar essa tarefa e depois deleta-lá. \\
+        \hline
+        Critérios de Aprovação/Falha do Item & Todas as etapas serão validadas e se alguma falhar o teste inteiro irá parar com uma mensagem de erro especificando onde parou. As checagens serão uma comparação direta entre as mudanças de estado entre o aplicativo e o banco de dados. \\
+        \hline
+        Necessidades Ambientais & Os testes serão realizados em dispositivos Android e iOS, com várias versões de cada sistema operacional e diferentes tamanhos de tela. \\
+        \hline
+        \end{tabularx}
+
+        \begin{tabularx}{\textwidth}{|X|X|}
+            \hline
+            Seção & Descrição \\
+            \hline
+            Identificador do Plano de Teste & Plano de Teste para a Funcionalidade de criação de usuários. \\
+            \hline
+            Introdução & Este plano de teste tem como objetivo garantir o correto funcionamento do recurso de criação de usuários em nosso aplicativo de mensagens. \\
+            \hline
+            Itens de Teste & A funcionalidade de criar usuários do aplicativo. \\
+            \hline
+            Funcionalidades a serem Testadas & Criar usuários deve conter as mesmas informações no contexto do usuário e no banco de dados ápos a confirmação da ação. \\
+            \hline
+            Funcionalidades que não serão Testadas & Funcionalidades não relacionadas à usuários do aplicativo. \\
+            \hline
+            Abordagem & Usaremos uma bateria de testes manuais com um banco de dados em memória visto que terá várias condições para criar o usuário, utilizaremos a ferramenta H2 para subir o bando de dados em memória. Os testes irão abranger todos as condições relacionadas a singularidade do e-mail e a senha. Ou seja, além de criar o usuário e validar no banco de dados, será validado os outros os casos nos quais terão que retornar erro como resposta certa. \\
+            \hline
+            Critérios de Aprovação/Falha do Item & Todas as etapas serão validadas e se alguma falhar o teste inteiro irá parar com uma mensagem de erro especificando onde parou. Sempre validando em cada etapa as alterações do contexto do usuário e do banco de dados. \\
+            \hline
+            Necessidades Ambientais & Os testes serão realizados em dispositivos Android e iOS, com várias versões de cada sistema operacional e diferentes tamanhos de tela. \\
+            \hline
+        \end{tabularx}
+
+        \begin{tabularx}{\textwidth}{|X|X|}
+                \hline
+                Seção & Descrição \\
+                \hline
+                Identificador do Plano de Teste & Plano de Teste para a Funcionalidade de gerenciamento de lista de tarefas. \\
+                \hline
+                Introdução & Este plano de teste tem como objetivo garantir o correto funcionamento do recurso de gerenciamento de lista de tarefas em nosso aplicativo de gerenciamento de tarefas. \\
+                \hline
+                Itens de Teste & A funcionalidade de lista de tarefas do aplicativo. \\
+                \hline
+                Funcionalidades a serem Testadas & Criar, deletar e editar as lista de tarefas devem conter as mesmas informações no contexto do usuário e no banco de dados ápos a confirmação da ação. Além de um teste de erro que deverá validar o retorno impossibilitando uma inserção de lista de tarefas com o mesmo nome dentro da organização que se encontra.\\
+                \hline
+                Funcionalidades que não serão Testadas & Funcionalidades não relacionadas à lista de tarefas do aplicativo. \\
+                \hline
+                Abordagem & Usaremos testes manuais \acrshort{e2e}. Portanto criaremos testes que irão checar o fluxo por completo, em cada parte terá uma validação da resposta. O fluxo será criar uma lista de tarefas, seguido de editar essa lista de tarefas e depois deleta-lá. Depois será testado o caso de tentar criar uma lista de tarefa com nome duplicado na mesma organização, o que deve retornar erro.\\
+                \hline
+                Critérios de Aprovação/Falha do Item & Todas as etapas serão validadas e se alguma falhar o teste inteiro irá parar com uma mensagem de erro especificando onde parou. As checagens serão uma comparação direta entre as mudanças de estado entre o aplicativo e o banco de dados.\\
+                \hline
+                Necessidades Ambientais & Os testes serão realizados em dispositivos Android e iOS, com várias versões de cada sistema operacional e diferentes tamanhos de tela. \\
+                \hline
+            \end{tabularx}
