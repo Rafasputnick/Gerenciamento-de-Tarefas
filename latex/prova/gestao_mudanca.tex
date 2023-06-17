@@ -1,9 +1,46 @@
 \chapter{Gestão de mudança}
-
-
+Um grupo de empresários compraram uma parte significativa da empresa e decidiu-se criar uma assinatura para a ferramenta em prol de ser mais rentável como negócio. Algumas restrições serão criadas em algumas funcionalidades, isso gerará uma mudança no banco de dados para classificar os usuários com assinatura e sem assinatura além de ter um sistema para pagamentos. 
 
 \section*{Impacto da Mudança}
+É uma mudança de grande impacto porque irá abranger várias telas, serviços, condições e mensagens de erro. Segue as limitações.
+
+\subsection*{Usuários sem assinatura poderão criar apenas uma organização}
+Essa condição terá que validar se o usuário logado possui assinatura antes de efetuar a ação e a tela na qual se cria a organização terá que ser revisada para facilitar o entendimento dessa nova restrição.
+
+\subsection*{Usuários sem assinatura poderão criar apenas cinco listas de tarefas}
+Essa condição terá que validar se o usuário logado possui assinatura antes de efetuar a ação e a tela na qual se cria a lista de tarefas terá que ser revisada para facilitar o entendimento dessa nova restrição.
+
+\subsection*{Usuários sem assinatura poderão criar no máximo três tarefas por dia}
+Essa condição terá que validar se o usuário logado possui assinatura antes de efetuar a ação e a tela na qual se cria tarefas terá que ser revisada para facilitar o entendimento dessa nova restrição.
+
+\subsection*{Uma organização com um dono sem assinatura não poderá ter mais de cinco colaboradores ativos}
+Essa condição terá que validar se o usuário dono na organização possui assinatura antes de efetuar a ação e a tela na qual se atribui usuários à organização terá que ser revisada para facilitar o entendimento dessa nova restrição.
+
+\subsection*{Novo módulo de pagamento}
+Esse módulo será atrelado ao módulo de assinatura na qual permiitirá ao usuário adicionar um cartão de crédito para as bandeiras solicitadas em prol de ativar a assinatura.
+
+\subsection*{Novo módulo para visualização dos resultados das listas de tarefas}
+Esse módulo será atrelado a listas de tarefas para auxiliar o dono do projeto com métricas de progresso da equipe, possibilitando uma visão geral do desempenho semanal, mensal e anual de cada colaborador da empresa.
+ Esse novo módulo será apenas para donos de organizações com assinatura.
 
 \section*{Comunicação da Mudança}
+A mudança será notificada para todos usuários por e-mail, notificação duas vezes sendo elas, uma vez antes de ocorrer a mudança e no próprio dia da mudança. Outra notificação será exibida na primeira vez que o usuário abrir o aplicativo. 
+
+A mensagem que será passada aos usuários é um aviso sobre as mudanças que ocorerrão, que visam arrecadar contribuidores para criar novas funcionalidades e garantir uma qualidade melhor de entregas. Possibilitando contratar novos funcionários que irão gerenciar a parte de testes e correção de erros de forma mais rápida.
 
 \section*{Medição do Sucesso da Mudança}
+O sucesso será medido com número de erros reportados nos três primeiros meses e a taxa de aprovação dos clientes de curto e longo prazo. 
+
+\subsection*{Erros reportados}
+Será criada um sistema de pontuação para mensurar o sucesso da mudança, caso ápos três meses a pontuação do sistema de pontos baseados em erros seja abaixo de 25  pontos então obteve-se sucesso na mudança, o sistema de pontos será definido com: 
+\subsubsection*{Erros de alta prioridade}
+Maneiras de burlar a condições de assinatura ou problemas no sistema de pagamento. Cada problema diferente reportado somará 10 pontos. 
+
+\subsubsection*{Erros de prioridade média}
+ Erros inesperados em contextos nos quais eram para funcionar a ação. Cada problema diferente reportado somará 5 pontos. 
+ 
+\subsubsection*{Erros de baixa prioridade}
+Erros relacionados a parte visual do projeto. Cada problema diferente reportado somará 2 pontos.
+
+\subsection*{Taxa de aprovação dos clientes}
+Em curto prazo se espera que tenha uma aceitação e assinatura de 20\% do público o que seria nesse período de três meses. A longo prazo — 1 ano — se pretende aumentar o número total de assinantes para 50\% do público atual.

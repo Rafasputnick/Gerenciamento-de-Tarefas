@@ -1,0 +1,51 @@
+\chapter{Casos de uso}
+
+\vspace{1cm}
+
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+Nome do Caso de Uso & Criar usuário. \\ \hline
+Ator Principal & Usuário padrão (U-001). \\ \hline
+Cenário de Sucesso & Entrar no aplicativo, e se inscrever no banco de dados, ou seja, clicar no botão de registro e depois preencher os campos de e-mail e senha seguindo as restriições requeridas e finalmente clicar no botão para concluir a ação. Caso não tenha outro registro no banco de dados com o mesmo e-mail deve obter sucesso. \\ \hline
+Condições Prévias & Apenas que não contenha um registro com o mesmo e-mail e siga as restrições da senha. \\ \hline
+Garantia Pós-condição & Usuário inserido com sucesso no banco de dados e recebido o \gls{token} gerado automaticamente fazendo assim um login instantâneo caso ocorra sucesso. \\ \hline
+Cenários Alternativos & As verificações das condições da senha serão validadas tanto no \gls{front} como no \gls{back}, pois caso ocorra algum problema por parte do usuário a parte de serviço bloqueará a ação, retornando erro. \\ \hline
+\end{tabularx}
+
+\vspace{1cm}
+
+\begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    Nome do Caso de Uso & Criar organização. \\ \hline
+    Ator Principal & Usuário padrão (U-001) que se tornará Dono do projeto (U-002) dentro da organização. \\ \hline
+    Cenário de Sucesso & Entrar no aplicativo, e criar uma organização no banco de dados, ou seja, clicar no botão de criar organização e depois preencher os campos necessários para finalmente clicar no botão e concluir a ação. Caso não tenha outro registro no banco de dados com o mesmo nome de organização deve obter sucesso. \\ \hline
+    Condições Prévias & Apenas que não contenha um registro com o mesmo nome. Esteja com um \gls{token} válido. \\ \hline
+    Garantia Pós-condição & Organização criada no banco de dados e o usuário que criou se tornar Dono do projeto nesse escopo. \\ \hline
+    Cenários Alternativos & Caso o usuário não esteja com um \gls{token} válido ou esteja tentando com um nome de organização já existente no banco de dados. \\ \hline
+\end{tabularx}
+
+\vspace{1cm}
+
+\begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    Nome do Caso de Uso & Gerenciamento de lista de tarefas, deve ser possível criar, editar e deletar listas de tarefas. \\ \hline
+    Ator Principal & Dono do projeto (U-002). \\ \hline
+    Cenário de Sucesso & Entrar no aplicativo, e clicar no botão de criar lista de tarefas dentro de uma organização de acordo com as restrições desse campo. Caso o nome da lista ainda não exista na organização deve retornar sucesso. \\ \hline
+    Condições Prévias & É necessário criar uma organização. Esteja com um \gls{token} válido. \\ \hline
+    Garantia Pós-condição & Lista de tarefas inseridas com sucesso dentro do bando de dados. \\ \hline
+    Cenários Alternativos & Caso o nome da lista de tarefas já exista dentro da organização deverá retornar erro.  \\ \hline
+\end{tabularx}
+
+\vspace{1cm}
+    
+\begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    Nome do Caso de Uso & Gerenciamento de tarefas, deve ser possível criar, editar e deletar tarefas. \\ \hline
+    Ator Principal & Dono do projeto (U-002) ou Usuário padrão (U-001). \\ \hline
+    Cenário de Sucesso & Entrar no aplicativo, e clicar no botão de criar tarefas dentro de uma organização e de uma lista de tarefas de acordo com as restrições desse campo. Apenas usuários atribuídos a tarefa e o Dono da organização poderão alterar o status da tarefa. \\ \hline
+    Condições Prévias & É necessário criar uma organização e uma lista de tarefas e que o usuário esteja nelas. Esteja com um \gls{token} válido. \\ \hline
+    Garantia Pós-condição & Tarefas inseridas com sucesso dentro do bando de dados. \\ \hline
+    Cenários Alternativos & Caso de algum problema da parte de serviços retornará erro e um e-mail automático do contexto para os desenvolvedores.  \\ \hline
+\end{tabularx}
+
+\vspace{1cm}
