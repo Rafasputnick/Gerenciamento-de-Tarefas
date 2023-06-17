@@ -68,3 +68,4 @@ jobs:
         with:
           message: Adding pdfs files
           default_author: github_actions
+          add: './modelagem_projeto.pdf ./visao_projeto.pdf ./prova.pdf'
