@@ -8,20 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  make_matrix:
+  compile_and_push:
     runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.matrix.outputs.value }}
-    steps:
-      - id: matrix
-        run: >
-          echo '::set-output name=value::["visao_projeto", "modelagem_projeto" , "prova"]'
-  clone_repo_and_install_dependencies:
-    runs-on: ubuntu-latest
-    needs: [make_matrix]
-    strategy:
-      matrix:
-        value: ${{fromJson(needs.make_matrix.outputs.matrix)}}
     steps:
       - name: Install texlive dependencies
         run: >
@@ -33,21 +21,49 @@ jobs:
         uses: actions/checkout@v3
       - name: Give permission
         run: 'sudo chmod -R 777 .'
-      - name: Compile LaTeX document
+      - name: Compile LaTeX document vp
         run: >
-              cd ./latex/${{matrix.value}} &&
+              cd ./latex/visao_projeto &&
               pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main &&
               makeglossaries main &&
               pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main &&
               pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main
-        
-      - name: Test if pdf was compiled
+      - name: Compile LaTeX document mp
         run: >
-              (cd ./latex/${{ matrix.value }} && test -f ./main.pdf && echo PDF exists) || 
+              cd ./latex/modelagem_projeto &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main &&
+              makeglossaries main &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main
+      - name: Compile LaTeX document p
+        run: >
+              cd ./latex/prova &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main &&
+              makeglossaries main &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main &&
+              pdflatex -synctex=1 -interaction=nonstopmode -file-line-error main
+                          
+      - name: Test if pdf was compiled vp
+        run: >
+              (cd ./latex/visao_projeto && test -f ./main.pdf && echo PDF exists) || 
               (echo PDF does not exist && pwd && ls && exit 1)
-      - name: Change path of pdf
+      - name: Test if pdf was compiled mp
         run: >
-              mv ./latex/${{ matrix.value }}/main.pdf ./${{ matrix.value }}.pdf
+              (cd ./latex/modelagem_projeto && test -f ./main.pdf && echo PDF exists) || 
+              (echo PDF does not exist && pwd && ls && exit 1)
+      - name: Test if pdf was compiled p
+        run: >
+              (cd ./latex/prova && test -f ./main.pdf && echo PDF exists) || 
+              (echo PDF does not exist && pwd && ls && exit 1)      
+      - name: Change path of pdf vp
+        run: >
+              mv ./latex/visao_projeto/main.pdf ./visao_projeto.pdf
+      - name: Change path of pdf mp
+        run: >
+              mv ./latex/modelagem_projeto/main.pdf ./modelagem_projeto.pdf
+      - name: Change path of pdf p
+        run: >
+              mv ./latex/prova/main.pdf ./prova.pdf
       - uses: EndBug/add-and-commit@v9
         with:
           message: Adding pdfs files
