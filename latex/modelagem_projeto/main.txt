@@ -1,0 +1,56 @@
+MODELAGEM DO PROJETO para
+Gerenciador de tarefas
+Vers˜ao 1.0 Preparado por: Lucas da Silva Santos Matheus Zanivan Andrade Rafael Nascimento Louren¸co Senac: Servi¸co Nacional de Aprendizagem
+Comercial 17 de junho de 2023
+1
+
+Conteu´do
+
+1 Casos de uso
+
+3
+
+2 Gloss´ario
+
+6
+
+2
+
+1 Casos de uso
+
+Nome do Caso de Uso Ator Principal
+Cena´rio de Sucesso
+Condi¸c˜oes Pr´evias Garantia Po´s-condi¸ca˜o Cen´arios Alternativos
+
+Criar usu´ario. Usu´ario padr˜ao (U-001). Entrar no aplicativo, e se inscrever no banco de dados, ou seja, clicar no bot˜ao de registro e depois preencher os campos de e-mail e senha seguindo as restri¸co˜es requeridas e finalmente clicar no bota˜o para concluir a a¸ca˜o. Caso n˜ao tenha outro registro no banco de dados com o mesmo e-mail deve obter sucesso. Apenas que n˜ao contenha um registro com o mesmo e-mail e siga as restri¸c˜oes da senha. Usu´ario inserido com sucesso no banco de dados e recebido o token gerado automaticamente fazendo assim um login instantaˆneo caso ocorra sucesso. As verifica¸c˜oes das condic¸o˜es da senha ser˜ao validadas tanto no front-end como no back-end, pois caso ocorra algum problema por parte do usua´rio a parte de servic¸o bloquear´a a a¸c˜ao, retornando erro.
+
+3
+
+Nome do Caso de Uso Ator Principal
+Cen´ario de Sucesso
+Condi¸c˜oes Pr´evias Garantia Po´s-condi¸c˜ao Cen´arios Alternativos
+
+Criar organiza¸c˜ao. Usu´ario padr˜ao (U-001) que se tornar´a Dono do projeto (U002) dentro da organiza¸c˜ao. Entrar no aplicativo, e criar uma organiza¸ca˜o no banco de dados, ou seja, clicar no bota˜o de criar organiza¸c˜ao e depois preencher os campos necess´arios para finalmente clicar no bota˜o e concluir a ac¸˜ao. Caso n˜ao tenha outro registro no banco de dados com o mesmo nome de organizac¸a˜o deve obter sucesso. Apenas que n˜ao contenha um registro com o mesmo nome. Esteja com um token va´lido. Organiza¸ca˜o criada no banco de dados e o usu´ario que criou se tornar Dono do projeto nesse escopo. Caso o usu´ario n˜ao esteja com um token va´lido ou esteja tentando com um nome de organizac¸a˜o j´a existente no banco de dados.
+
+Nome do Caso de Uso Ator Principal
+Cena´rio de Sucesso
+Condi¸co˜es Pr´evias Garantia Po´s-condi¸ca˜o Cen´arios Alternativos
+
+Gerenciamento de lista de tarefas, deve ser poss´ıvel criar, editar e deletar listas de tarefas. Dono do projeto (U-002). Entrar no aplicativo, e clicar no bot˜ao de criar lista de tarefas dentro de uma organizac¸˜ao de acordo com as restric¸˜oes desse campo. Caso o nome da lista ainda na˜o exista na organiza¸ca˜o deve retornar sucesso. E´ necess´ario criar uma organiza¸ca˜o. Esteja com um token v´alido. Lista de tarefas inseridas com sucesso dentro do bando de dados. Caso o nome da lista de tarefas j´a exista dentro da organiza¸c˜ao dever´a retornar erro.
+
+4
+
+Nome do Caso de Uso Ator Principal
+Cen´ario de Sucesso
+Condi¸co˜es Pr´evias Garantia Po´s-condi¸c˜ao Cen´arios Alternativos
+
+Gerenciamento de tarefas, deve ser poss´ıvel criar, editar e deletar tarefas. Dono do projeto (U-002) ou Usu´ario padra˜o (U-001). Entrar no aplicativo, e clicar no bota˜o de criar tarefas dentro de uma organiza¸c˜ao e de uma lista de tarefas de acordo com as restri¸co˜es desse campo. Apenas usua´rios atribu´ıdos a tarefa e o Dono da organiza¸ca˜o podera˜o alterar o status da tarefa. E´ necess´ario criar uma organiza¸ca˜o e uma lista de tarefas e que o usua´rio esteja nelas. Esteja com um token v´alido. Tarefas inseridas com sucesso dentro do bando de dados. Caso de algum problema da parte de servi¸cos retornar´a erro e um e-mail automa´tico do contexto para os desenvolvedores.
+
+5
+
+2 Gloss´ario
+back-end E´ a parte de servi¸cos de um software. 5, 17, 18 e2e End-to-end ´e um c´odigo que testa uma funcionalidade por completo. 6, 8 front-end E´ a parte visual de um software. 5 infra-as-code E´ uma infraestrutura definida por co´digo. 18 pull requests E´ quando um desenvolvedor terima uma tarefa e deixa pr´e encaminhado
+para subir a alterac¸a˜o. 6 token E´ uma identificac¸a˜o. 11
+6
+
+
