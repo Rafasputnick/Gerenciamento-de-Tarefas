@@ -1,0 +1,28 @@
+\chapter{Teste de Carga}
+
+
+\section*{Objetivo do teste}
+Esse teste de carga tem o objetivo de avaliar se um aplicativo de gerenciamento de tarefas tem a capacidade de suportar simultaneamente 20000 usuários sem perder desempenho.
+
+\section*{Escopo do Teste}
+
+No aplicativo, serão realizados testes nos seguintes campos:
+
+\begin{itemize}
+    \item Criação de usuários: O objetivo é determinar a quantidade de usuários que podem ser criados simultaneamente, bem como a capacidade total de criação de usuários.
+    \item Gerenciamento de sessão: Será simulada a presença de múltiplos usuários simultâneos na aplicação, a fim de verificar a capacidade de gerenciamento de sessões.
+    \item Listas: Será avaliada a capacidade de criação e exclusão de listas, buscando determinar a quantidade máxima de listas que podem ser criadas e removidas com sucesso.
+    \item Criação de tarefas: Será testada a capacidade de criação e exclusão de tarefas, com o intuito de verificar o limite de tarefas que podem ser criadas e removidas.
+\end{itemize}
+
+\section*{Cenário de teste}
+Para simular a carga e o tráfego deste aplicativo, utilizaremos a ferramenta Loadview. Essa ferramenta nos permite simular a quantidade de usuários simultâneos, avaliar o desempenho, escalabilidade, identificar os limites, a estabilidade e garantir a qualidade do aplicativo. Serão simulados 30.000 usuários simultâneos para assegurar o funcionamento adequado da aplicação acima da capacidade esperada, sem perda de desempenho. Dentre os 30.000 usuários simulados, 15.000 serão destinados a testar o gerenciamento de sessões, entrando e saindo do aplicativo, enquanto os outros 15.000 irão navegar entre a tela de lista de tarefas e as tarefas.
+
+E para testar a quantidade de dados que a aplicação deve lidar serão criadas 30000 mil contas distintas, e cada uma das contas criadas terão uma organização atrelada com o nome e uma lista de tarefas contendo 3 tarefas.
+
+\section*{Métricas para coletar}
+Durante os testes, serão coletados dados como o tempo de resposta, a taxa de erros, a utilização de recursos, a concorrência, o tempo de carregamento da página e o tempo de conexão.
+
+\section*{Análise dos Resultados}
+
+Ao final da simulação, caso o aplicativo não suporte a carga, faremos uma nova simulação com 25.000 usuários para nos aproximarmos ainda mais da quantidade esperada. Se, mesmo assim, a aplicação não for capaz de suportar essa carga, realizaremos melhorias nos servidores antes de prosseguir com os novos testes. Caso tudo funcione normalmente, o aplicativo de gerenciamento de tarefas será publicado e estará pronto para uso.
